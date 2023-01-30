@@ -19,3 +19,6 @@ const fetchAll = () =>
 export default {
     fetchAll
 };
+// export const fetchAll = () => {
+//     return badge;
+// };

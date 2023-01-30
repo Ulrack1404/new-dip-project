@@ -17,13 +17,13 @@ export const categories = {
     }
 };
 
-const fetchAll = () =>
+export const fetchAll = () =>
     new Promise((resolve) => {
         window.setTimeout(function () {
             resolve(categories);
-        }, 2000);
+        }, 3000);
     });
 
-export default {
-    fetchAll
-};
+// export const fetchAll = () => {
+//     return categories;
+// };
