@@ -1,4 +1,6 @@
 import { createAction, createSlice } from "@reduxjs/toolkit";
+import { useState } from "react";
+import API from "../api";
 
 const initialState = {
     entities: null,
@@ -13,13 +15,28 @@ const toysSlice = createSlice({
         toysRequested: (state) => {
             state.isLoading = true;
         },
-        usersReceived: (state, action) => {
+        toysReceived: (state, action) => {
             state.entities = action.payload;
             state.isLoading = false;
         },
-        usersRequestFailed: (state, action) => {
+        toysRequestFailed: (state, action) => {
             state.error = action.payload;
             state.isLoading = false;
         }
     }
 });
+
+const { reducer: toysReducer, actions } = toysSlice;
+const { toysRequested, toysReceived, toysRequestFailed } = actions;
+
+// export const loadToysList = () => (dispatch, getState) => {
+//     dispatch(toysRequested());
+//     try {
+//         const { content } =
+//         dispatch(toysReceived(content));
+//     } catch (error) {
+//         dispatch(toysRequestFailed(error.message));
+//     }
+// };
+
+export default toysReducer;
