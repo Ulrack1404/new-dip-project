@@ -1,5 +1,6 @@
 @import "../src/icon-fonts/icon-style.css";
 @import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap");
 @font-face {
     font-family: "icomoon";
     src: url("../src/icon-fonts/fonts/icomoon.ttf") format("opentype");
@@ -10,8 +11,9 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
         "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
         "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    /* font-family: Verdana, sans-serif; */
+    font-family: "Exo 2", sans-serif;
+    color: #414141;
 }
 
 code {
@@ -19,9 +21,9 @@ code {
         monospace;
 }
 
-.imagePrev{
-position: relative;
-min-height: 100px;
+.imagePrev {
+    position: relative;
+    min-height: 100px;
 }
 .imagePrev img {
     position: absolute;
@@ -33,27 +35,110 @@ min-height: 100px;
 
 ._ibg {
     position: relative;
-  }
-  
-  ._ibg img {
+}
+
+._ibg img {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     -o-object-fit: cover;
-       object-fit: cover;
-  }
-  .title_prev{
-    font-size: 16px;
+    object-fit: cover;
+}
+.title_prev {
+    font-size: 20px;
     font-weight: bold;
+}
+.category {
     font-style: italic;
+}
 
-  }
+.logotip {
+    height: 100px;
+    width: 100px;
+    background: url("./img/Logo.png") 0 0 no-repeat;
+    background-image: url(./img/Logo.png);
+    background-size: contain;
+    background-position: center;
+}
+.text-bold {
+    font-weight: bold;
+}
+.orange {
+    color: #ea5941;
+}
+.castom-btn-orange {
+    background-color: #ea5941;
+    color: #fff;
+}
+.castom-btn-yellow {
+    background-color: #5dfa8f;
+    color: #fff;
+}
+.gradient {
+    background-image: linear-gradient(214deg, #cc8e4e 0%, #b31919 100%);
+}
 
-  .id{
-    font-size: 10px;
-  }
-  .category{
-    font-style: italic;
-  }
+.h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+.color-w {
+    color: #fff;
+}
+.min-h-100 {
+    min-height: 100px;
+}
+.radius-40px {
+    border-radius: 40px;
+    overflow: hidden;
+}
+.radius-text {
+    border-radius: 20px 0 20px 0;
+    overflow: hidden;
+}
+.h1-page {
+    font-size: 30px;
+    font-weight: bold;
+}
+.w-100 {
+    width: 100%;
+}
+.categories img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10% 30% 50% 70%;
+}
+
+.img-prev-radius img {
+    border-radius: 20% 0 10% 0;
+}
+.img-prev-radius-div {
+    border-radius: 10%;
+}
+.h-400px {
+    height: 400px;
+}
+.cast-card-nowrap {
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.bg-red {
+    background-color: #b31919;
+}
+.shadow-prev {
+    box-shadow: 0px 5px 8px rgb(0 0 0 / 3%);
+}
+.shadow-prev:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.transition-prev {
+    transition: all 0.3s ease 0s;
+}
+.title-form {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}

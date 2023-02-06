@@ -1,9 +1,10 @@
-import * as toys from "./fake.api/toys.api";
+import foods from "./fake.api/foods.api";
 import * as categories from "./fake.api/categories.api";
-import * as badge from "./fake.api/badge.api";
+import badge from "./fake.api/badge.api";
 const API = {
-    toys,
+    foods,
     categories,
     badge
 };
+
 export default API;

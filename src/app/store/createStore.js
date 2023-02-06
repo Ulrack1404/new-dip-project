@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import toysReducer from "./toys";
+import foodsReducer from "./foods";
 
 const rootReducer = combineReducers({
-    toys: toysReducer
+    foods: foodsReducer
 });
 
 export function createStore() {

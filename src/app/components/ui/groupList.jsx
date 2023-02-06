@@ -6,31 +6,38 @@ const GroupList = ({
     valueProperty,
     contentProperty,
     onItemSelect,
-    selectedItem
+    selectedItem,
+    imageUrl
 }) => {
     if (!Array.isArray(items)) {
         return (
-            <ul className="list-group">
+            <div className="d-flex flex-wrap justify-content-around">
                 {Object.keys(items).map((item) => (
-                    <li
+                    <div
                         key={items[item][valueProperty]}
                         className={
-                            "list-group-item" +
+                            " col-5 mb-2 me-2" +
                             (items[item] === selectedItem ? " active" : "")
                         }
                         onClick={() => onItemSelect(items[item])}
                         role="button"
                     >
-                        {items[item][contentProperty]}
-                    </li>
+                        <div className="_ibg col-3 min-h-100 w-100 categories">
+                            <img
+                                src={require(`../../../img/categories/${items[item].imageUrl}.jpg`)}
+                                alt=""
+                            />
+                        </div>
+                        <div className="ps-2 bg-red color-w radius-text">{items[item][contentProperty]}</div>
+                    </div>
                 ))}
-            </ul>
+            </div>
         );
     }
     return (
-        <ul className="list-group">
+        <div className="list-group">
             {items.map((item) => (
-                <li
+                <div
                     key={item[valueProperty]}
                     className={
                         "list-group-item" +
@@ -40,9 +47,9 @@ const GroupList = ({
                     role="button"
                 >
                     {item[contentProperty]}
-                </li>
+                </div>
             ))}
-        </ul>
+        </div>
     );
 };
 GroupList.defaultProps = {
@@ -54,7 +61,8 @@ GroupList.propTypes = {
     valueProperty: PropTypes.string.isRequired,
     contentProperty: PropTypes.string.isRequired,
     onItemSelect: PropTypes.func,
-    selectedItem: PropTypes.object
+    selectedItem: PropTypes.object,
+    imageUrl: PropTypes.string
 };
 
 export default GroupList;
