@@ -17,7 +17,9 @@ const FoodPrev = ({ _id, name, category, price, imageUrl }) => {
                     <p className="category">{category.name}</p>
                     <p>{price} р.</p>
                     <p>
-                        <button className="btn btn-warning color-w  rounded-pill px-4 position-relative">Добавить в корзину</button>
+                        <button className="btn btn-warning color-w  rounded-pill px-4 position-relative">
+                            Добавить в корзину
+                        </button>
                     </p>
                 </div>
             </div>
@@ -28,7 +30,7 @@ const FoodPrev = ({ _id, name, category, price, imageUrl }) => {
 FoodPrev.propTypes = {
     _id: PropTypes.string,
     name: PropTypes.string,
-    category: PropTypes.object,
+    category: PropTypes.string,
     price: PropTypes.number,
     imageUrl: PropTypes.string
 };

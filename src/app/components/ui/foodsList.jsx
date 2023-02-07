@@ -1,26 +1,21 @@
 import React, { useEffect, useState } from "react";
-import API from "../../api";
 import { paginate } from "../../utils/paginate";
 import Pagination from "./pagination";
 import _ from "lodash";
 import GroupList from "./groupList";
 import FoodsContent from "./foodsContent";
+import { useFood } from "../../hooks/useFoods";
+import { useCategories } from "../../hooks/useCategory";
 
 const FoodsList = () => {
+    const { foods } = useFood();
+    const { categories } = useCategories();
+
     const [currentPage, setCurrentPage] = useState(1);
-    const [foods, setFoods] = useState();
-    const [categories, setCategories] = useState();
     const [selectedProf, setSelectedProf] = useState();
     const [searchQuery, setSearchQuery] = useState("");
     const [sortBy, setSortBy] = useState({ path: "price", order: "asc" });
     const pageSize = 4;
-
-    useEffect(() => {
-        API.categories.fetchAll().then((data) => setCategories(data));
-    }, []);
-    useEffect(() => {
-        API.foods.fetchAll().then((data) => setFoods(data));
-    }, []);
 
     useEffect(() => {
         setCurrentPage(1);
@@ -57,7 +52,7 @@ const FoodsList = () => {
                 ? data.filter(
                       (food) =>
                           JSON.stringify(food.category) ===
-                          JSON.stringify(selectedProf)
+                          JSON.stringify(selectedProf._id)
                   )
                 : data;
             return filteredFoods;

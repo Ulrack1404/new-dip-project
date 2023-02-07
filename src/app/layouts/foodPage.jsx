@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 import API from "../api";
+import { useFood } from "../hooks/useFoods";
 
 const FoodPage = ({ foodId }) => {
     const history = useHistory();
-    const [food, setFood] = useState();
-    useEffect(() => {
-        API.foods.getById(foodId).then((data) => setFood(data));
-    }, []);
+    const { getFoodById } = useFood();
+    const food = getFoodById(foodId);
+
     const handleClick = () => {
         history.push("/foods");
     };
@@ -22,15 +22,19 @@ const FoodPage = ({ foodId }) => {
                     />
                 </div>
                 <div>
-                    <h1 className="h1-page"> {food.name}</h1>
+                    <h1 className="h1-page fs-1 mb-5"> {food.name}</h1>
                     {food.description && (
-                        <div>{`Описание: ${food.description}`}</div>
+                        <div className="fs-4 mb-3">{`Описание: ${food.description}`}</div>
                     )}
-                    <div>
-                        Цена: <span>{food.price}.00</span> ₽
+                    <div className="mb-5" >
+                        <span className="fs-4 me-3">Цена:</span>
+                        <span className="text-danger fw-bold fs-1 me-1">
+                            {food.price}.00
+                        </span>
+                        <span className="text-danger fw-bold fs-2">₽</span>
                     </div>
 
-                    <button onClick={handleClick}> Все Пользователи</button>
+                    <button onClick={handleClick} className="btn btn-danger rounded-pill px-4 position-relative"> Вернуться в каталог</button>
                 </div>
             </div>
         );

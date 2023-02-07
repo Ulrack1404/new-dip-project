@@ -71,64 +71,6 @@ const NavBar = () => {
                                     Каталог товаров
                                 </Link>
                             </li>
-                            <li
-                                className="nav-item dropdown"
-                                onClick={toggleMenuItem}
-                            >
-                                <a
-                                    className="nav-link dropdown-toggle"
-                                    href="#"
-                                    id="navbarDropdown"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    Категории
-                                </a>
-                                <ul
-                                    className={
-                                        "dropdown-menu" +
-                                        (isOpen ? " show" : "")
-                                    }
-                                    aria-labelledby="navbarDropdown"
-                                >
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            гирлянды
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            елочные шары
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            животные
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            новогодние персонажи
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            звезды
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            снежинки
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            светящийся декор
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">
                                     Корзина

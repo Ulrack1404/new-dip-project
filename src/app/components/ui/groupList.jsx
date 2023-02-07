@@ -6,8 +6,7 @@ const GroupList = ({
     valueProperty,
     contentProperty,
     onItemSelect,
-    selectedItem,
-    imageUrl
+    selectedItem
 }) => {
     if (!Array.isArray(items)) {
         return (
@@ -16,7 +15,7 @@ const GroupList = ({
                     <div
                         key={items[item][valueProperty]}
                         className={
-                            " col-5 mb-2 me-2" +
+                            "col-5 mb-2 me-2" +
                             (items[item] === selectedItem ? " active" : "")
                         }
                         onClick={() => onItemSelect(items[item])}
@@ -28,25 +27,35 @@ const GroupList = ({
                                 alt=""
                             />
                         </div>
-                        <div className="ps-2 bg-red color-w radius-text">{items[item][contentProperty]}</div>
+                        <div className="ps-2 bg-red color-w radius-text">
+                            {items[item][contentProperty]}
+                        </div>
                     </div>
                 ))}
             </div>
         );
     }
     return (
-        <div className="list-group">
+        <div className="d-flex flex-wrap justify-content-around">
             {items.map((item) => (
                 <div
                     key={item[valueProperty]}
                     className={
-                        "list-group-item" +
+                        "col-5 mb-2 me-2" +
                         (item === selectedItem ? " active" : "")
                     }
                     onClick={() => onItemSelect(item)}
                     role="button"
                 >
-                    {item[contentProperty]}
+                    <div className="_ibg col-3 min-h-100 w-100 categories">
+                        <img
+                            src={require(`../../../img/categories/${item.imageUrl}.jpg`)}
+                            alt=""
+                        />
+                    </div>
+                    <div className="ps-2 bg-red color-w radius-text">
+                        {item[contentProperty]}
+                    </div>
                 </div>
             ))}
         </div>

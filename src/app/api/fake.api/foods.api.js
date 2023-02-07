@@ -1,5 +1,4 @@
 import { categories } from "./categories.api";
-import { badge } from "./badge.api";
 
 const foods = [
     {
@@ -9,8 +8,6 @@ const foods = [
         price: 320,
         description: "помидоры, моцарелла, базилик",
         imageUrl: "pizza/pizza-margarita",
-        // imageUrl: require("../../../img/categories/pizza/pizza-margarita.jpg"),
-        badge: badge.bestseller,
         inBasket: false
     },
     {
@@ -20,7 +17,6 @@ const foods = [
         price: 330,
         description: "ветчина, помидоры, сыр",
         imageUrl: "pizza/pizza-detskaya",
-        badge: badge.new,
         inBasket: false
     },
     {
@@ -30,7 +26,6 @@ const foods = [
         price: 360,
         description: "ветчина, ананас, перец болгарский, майонез",
         imageUrl: "pizza/pizza-vetchina-s-ananasom",
-        badge: null,
         inBasket: false
     },
     {
@@ -40,7 +35,6 @@ const foods = [
         price: 400,
         description: "ветчина, грибы, помидоры, сыр, лук",
         imageUrl: "pizza/pizza-vetchina-s-gribami",
-        badge: null,
         inBasket: false
     },
     {
@@ -50,7 +44,6 @@ const foods = [
         price: 500,
         description: "помидоры, брынза, оливки, перец, сыр",
         imageUrl: "pizza/pizza-aromat-italii",
-        badge: null,
         inBasket: false
     },
     {
@@ -60,7 +53,6 @@ const foods = [
         price: 225,
         description: "помидоры, оливки, фета, огурец, перец болгарский",
         imageUrl: "salats/salat-korsikanskiy",
-        badge: null,
         inBasket: false
     },
     {
@@ -70,7 +62,6 @@ const foods = [
         price: 230,
         description: "лист салата, помидор, сыр фета, авокадо, огурец, оливки",
         imageUrl: "salats/salat_s_avokado_i_sirom_feta",
-        badge: null,
         inBasket: false
     },
     {
@@ -80,7 +71,6 @@ const foods = [
         price: 175,
         description: "кальмары, яйцо, грибы, лук, морковь, майонез",
         imageUrl: "salats/salat-syrnaya-korzinochka",
-        badge: null,
         inBasket: false
     },
     {
@@ -90,7 +80,6 @@ const foods = [
         price: 165,
         description: "кальмары, яйцо, сыр",
         imageUrl: "salats/nejniy",
-        badge: null,
         inBasket: false
     },
     {
@@ -100,7 +89,6 @@ const foods = [
         price: 265,
         description: "семга с картофель, яйцо, морковь, огурец, майонез",
         imageUrl: "salats/salat-olivie-s-semgoy",
-        badge: null,
         inBasket: false
     },
     {
@@ -110,7 +98,6 @@ const foods = [
         price: 105,
         description: "0,5 л",
         imageUrl: "drinks/koka-kolla2",
-        badge: null,
         inBasket: false
     },
     {
@@ -120,7 +107,6 @@ const foods = [
         price: 75,
         description: "0,5 л",
         imageUrl: "drinks/BONAKVA",
-        badge: null,
         inBasket: false
     },
     {
@@ -130,7 +116,6 @@ const foods = [
         price: 105,
         description: "0,5 л",
         imageUrl: "drinks/SPRITE2",
-        badge: null,
         inBasket: false
     },
     {
@@ -141,7 +126,6 @@ const foods = [
         description:
             "Соки: персиковый, вишневый, ананасовый, мороженое, взбитые сливки, банан",
         imageUrl: "drinks/fruktovyi_mix",
-        badge: null,
         inBasket: false
     },
     {
@@ -151,7 +135,6 @@ const foods = [
         price: 100,
         description: "пепси, мороженое, шоколад",
         imageUrl: "drinks/pauk",
-        badge: null,
         inBasket: false
     },
     {
@@ -161,7 +144,6 @@ const foods = [
         price: 30,
         description: "",
         imageUrl: "fruits/banan1",
-        badge: null,
         inBasket: false
     },
     {
@@ -171,7 +153,6 @@ const foods = [
         price: 50,
         description: "",
         imageUrl: "fruits/lemon1",
-        badge: null,
         inBasket: false
     },
     {
@@ -181,7 +162,6 @@ const foods = [
         price: 55,
         description: "",
         imageUrl: "fruits/vinograd1",
-        badge: null,
         inBasket: false
     },
     {
@@ -191,7 +171,6 @@ const foods = [
         price: 60,
         description: "",
         imageUrl: "fruits/kivi1",
-        badge: null,
         inBasket: false
     },
     {
@@ -201,7 +180,6 @@ const foods = [
         price: 75,
         description: "",
         imageUrl: "fruits/apelsin1",
-        badge: null,
         inBasket: false
     },
     {
@@ -211,7 +189,6 @@ const foods = [
         price: 255,
         description: "Лосось, сливочный сыр, соус унаги, соус лав",
         imageUrl: "rolls/sushi_zapechenie_s_lososem",
-        badge: null,
         inBasket: false
     },
     {
@@ -221,7 +198,6 @@ const foods = [
         price: 270,
         description: "Лосось с/с, сливочный сыр, огурец",
         imageUrl: "rolls/sushi_filadelphiya",
-        badge: null,
         inBasket: false
     },
     {
@@ -232,7 +208,6 @@ const foods = [
         description:
             "Лосось, сливочный сыр, тобико, кунжут, соус унаги, соус лав со снежным крабом",
         imageUrl: "rolls/sushi_zapechenie_s_krabom",
-        badge: null,
         inBasket: false
     },
     {
@@ -242,7 +217,6 @@ const foods = [
         price: 65,
         description: "С огурцом",
         imageUrl: "rolls/shushi_kappa_maki",
-        badge: null,
         inBasket: false
     },
     {
@@ -252,7 +226,6 @@ const foods = [
         price: 170,
         description: "С угрем",
         imageUrl: "rolls/shushi_unagi_maki",
-        badge: null,
         inBasket: false
     },
     {
@@ -262,7 +235,6 @@ const foods = [
         price: 90,
         description: "",
         imageUrl: "deserts/pirojenoe_medovoe",
-        badge: null,
         inBasket: false
     },
     {
@@ -272,7 +244,6 @@ const foods = [
         price: 100,
         description: "",
         imageUrl: "deserts/chizckake",
-        badge: null,
         inBasket: false
     },
     {
@@ -283,7 +254,6 @@ const foods = [
         description:
             "шоколадный пломбир, вафельные трубочки, орехи, шоколадный сироп",
         imageUrl: "deserts/morojenoe_mulatka1",
-        badge: null,
         inBasket: false
     },
     {
@@ -293,7 +263,6 @@ const foods = [
         price: 130,
         description: "банан, апельсин, зефир, йогурт, шоколад",
         imageUrl: "deserts/fruktovyi_salat1",
-        badge: null,
         inBasket: false
     },
     {
@@ -303,14 +272,13 @@ const foods = [
         price: 145,
         description: "фрукты, джем, сливки, орех",
         imageUrl: "deserts/moroj_lesnaya_skazka1",
-        badge: null,
         inBasket: false
     }
 ];
 
-if (!localStorage.getItem("foods")) {
-    localStorage.setItem("foods", JSON.stringify(foods));
-}
+// if (!localStorage.getItem("foods")) {
+//     localStorage.setItem("foods", JSON.stringify(foods));
+// }
 const fetchAll = () =>
     new Promise((resolve) => {
         window.setTimeout(function () {

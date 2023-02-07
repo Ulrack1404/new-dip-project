@@ -62,9 +62,6 @@ code {
     background-size: contain;
     background-position: center;
 }
-.text-bold {
-    font-weight: bold;
-}
 .orange {
     color: #ea5941;
 }
@@ -98,10 +95,7 @@ code {
     border-radius: 20px 0 20px 0;
     overflow: hidden;
 }
-.h1-page {
-    font-size: 30px;
-    font-weight: bold;
-}
+
 .w-100 {
     width: 100%;
 }
@@ -141,4 +135,13 @@ code {
     font-size: 30px;
     font-weight: bold;
     text-align: center;
+}
+.color-red {
+    color: red;
+}
+.fz20 {
+    font-size: 20px;
+}
+.font-weight {
+    font-weight: bold;
 }

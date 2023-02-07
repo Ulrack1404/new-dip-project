@@ -1,56 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { validator } from "../../utils/validator";
 import TextField from "../common/form/textField";
-import api from "../../api";
+import { useAuth } from "../../hooks/useAuth";
+import { useHistory } from "react-router-dom";
 
 const RegisterForm = () => {
+    const history = useHistory();
     const [data, setData] = useState({
         username: "",
         email: "",
         password: ""
     });
+
+    const { signUp } = useAuth();
+
     const [errors, setErrors] = useState({});
 
-    // const getProfessionById = (id) => {
-    //     for (const prof of professions) {
-    //         if (prof.value === id) {
-    //             return { _id: prof.value, name: prof.label };
-    //         }
-    //     }
-    // };
-    // const getQualities = (elements) => {
-    //     const qualitiesArray = [];
-    //     for (const elem of elements) {
-    //         for (const quality in qualities) {
-    //             if (elem.value === qualities[quality].value) {
-    //                 qualitiesArray.push({
-    //                     _id: qualities[quality].value,
-    //                     name: qualities[quality].label,
-    //                     color: qualities[quality].color
-    //                 });
-    //             }
-    //         }
-    //     }
-    //     return qualitiesArray;
-    // };
-
-    // useEffect(() => {
-    //     api.professions.fetchAll().then((data) => {
-    //         const professionsList = Object.keys(data).map((professionName) => ({
-    //             label: data[professionName].name,
-    //             value: data[professionName]._id
-    //         }));
-    //         setProfession(professionsList);
-    //     });
-    //     api.qualities.fetchAll().then((data) => {
-    //         const qualitiesList = Object.keys(data).map((optionName) => ({
-    //             value: data[optionName]._id,
-    //             label: data[optionName].name,
-    //             color: data[optionName].color
-    //         }));
-    //         setQualities(qualitiesList);
-    //     });
-    // }, []);
     const handleChange = (target) => {
         setData((prevState) => ({
             ...prevState,
@@ -97,11 +62,17 @@ const RegisterForm = () => {
     };
     const isValid = Object.keys(errors).length === 0;
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
         console.log({ ...data });
+        try {
+            await signUp(data);
+            history.push("/");
+        } catch (error) {
+            setErrors(error);
+        }
     };
     return (
         <form onSubmit={handleSubmit}>

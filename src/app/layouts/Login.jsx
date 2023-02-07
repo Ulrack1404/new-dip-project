@@ -19,7 +19,7 @@ const Login = () => {
                 <div className="col-md-6 offset-md-3 img-prev-radius-div shadow p-4">
                     {formType === "register" ? (
                         <>
-                            <h3 className="mb-4 title-form">Register</h3>
+                            <h3 className="mb-5 fs-1 fw-bold text-center text-danger">Register</h3>
                             <RegisterForm />
                             <p>
                                 Already have account?
@@ -30,7 +30,7 @@ const Login = () => {
                         </>
                     ) : (
                         <>
-                            <h3 className="mb-4 title-form">Login</h3>
+                            <h3 className="mb-5 fs-1 fw-bold text-center text-danger">Login</h3>
                             <LoginForm />
                             <p>
                                 Dont have account?
