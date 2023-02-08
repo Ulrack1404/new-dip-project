@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import foodService from "../services/food.service";
+import Loader from "../components/common/loader/loader";
 
 const FoodContext = React.createContext();
 
@@ -41,7 +42,7 @@ const FoodProvider = ({ children }) => {
     }
     return (
         <FoodContext.Provider value={{ foods, getFoodById }}>
-            {!isLoading ? children : "Loading..."}
+            {!isLoading ? children : <Loader />}
         </FoodContext.Provider>
     );
 };

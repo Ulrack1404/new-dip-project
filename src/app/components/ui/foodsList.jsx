@@ -4,12 +4,20 @@ import Pagination from "./pagination";
 import _ from "lodash";
 import GroupList from "./groupList";
 import FoodsContent from "./foodsContent";
-import { useFood } from "../../hooks/useFoods";
-import { useCategories } from "../../hooks/useCategory";
+import { useSelector } from "react-redux";
+import {
+    getCategories,
+    getCategoriesLoadingStatus
+} from "../../store/categories";
+import { getFoods } from "../../store/foods";
+
+import Loader from "../common/loader/loader";
 
 const FoodsList = () => {
-    const { foods } = useFood();
-    const { categories } = useCategories();
+    const foods = useSelector(getFoods());
+    const categories = useSelector(getCategories());
+
+    const categoriesLoading = useSelector(getCategoriesLoadingStatus());
 
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedProf, setSelectedProf] = useState();
@@ -130,19 +138,7 @@ const FoodsList = () => {
             </div>
         );
     }
-    return (
-        <div className="d-flex justify-content-center h-400px align-items-center">
-            <div className="spinner-grow text-warning me-3" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </div>
-            <div className="spinner-grow text-warning me-3" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </div>
-            <div className="spinner-grow text-warning" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </div>
-        </div>
-    );
+    return <Loader />;
 };
 
 export default FoodsList;

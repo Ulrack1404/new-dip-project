@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { validator } from "../../utils/validator";
 import TextField from "../common/form/textField";
-import { useAuth } from "../../hooks/useAuth";
+// import { useAuth } from "../../hooks/useAuth";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signUp } from "../../store/auth";
 
 const RegisterForm = () => {
+    const dispatch = useDispatch();
+
     const history = useHistory();
     const [data, setData] = useState({
         username: "",
@@ -12,7 +16,7 @@ const RegisterForm = () => {
         password: ""
     });
 
-    const { signUp } = useAuth();
+    // const { signUp } = useAuth();
 
     const [errors, setErrors] = useState({});
 
@@ -62,18 +66,28 @@ const RegisterForm = () => {
     };
     const isValid = Object.keys(errors).length === 0;
 
-    const handleSubmit = async (e) => {
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     const isValid = validate();
+    //     if (!isValid) return;
+    //     console.log({ ...data });
+    //     try {
+    //         await signUp(data);
+    //         history.push("/");
+    //     } catch (error) {
+    //         setErrors(error);
+    //     }
+    // };
+
+    const handleSubmit = (e) => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
-        console.log({ ...data });
-        try {
-            await signUp(data);
-            history.push("/");
-        } catch (error) {
-            setErrors(error);
-        }
+        console.log(data);
+        dispatch(signUp(data));
+        history.push("/");
     };
+
     return (
         <form onSubmit={handleSubmit}>
             <TextField

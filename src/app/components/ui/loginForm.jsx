@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { validator } from "../../utils/validator";
 import TextField from "../common/form/textField";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { getAuthErrors, signIn } from "../../store/auth";
 
 const LoginForm = () => {
-    console.log(process.env);
     const [data, setData] = useState({
         email: "",
         password: ""
     });
+    const loginError = useSelector(getAuthErrors());
+    const history = useHistory();
+    const dispatch = useDispatch();
+
     const [errors, setErrors] = useState({});
     const handleChange = (target) => {
         setData((prevState) => ({
@@ -50,12 +56,24 @@ const LoginForm = () => {
     };
     const isValid = Object.keys(errors).length === 0;
 
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     const isValid = validate();
+    //     if (!isValid) return;
+    //     console.log(data);
+    // };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
+        const redirect = history.location.state
+        ? history.location.state.from.pathname
+        : "/";
         console.log(data);
+        dispatch(signIn({ payload: data, redirect }));
     };
+
     return (
         <form onSubmit={handleSubmit}>
             <TextField
@@ -73,6 +91,7 @@ const LoginForm = () => {
                 onChange={handleChange}
                 error={errors.password}
             />
+            {loginError && <p className="text-danger">{loginError}</p>}
             <button
                 className="btn btn-primary w-100 mx-auto"
                 type="submit"
