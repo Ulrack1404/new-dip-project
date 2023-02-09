@@ -3,11 +3,15 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getIsLoggedIn } from "../../store/auth";
 import NavProfile from "./navProfile";
-import { getSummaryBasketCounter } from "../../store/basket";
+import {
+    getSummaryBasketCounter,
+    getSummaryBasketPrice
+} from "../../store/basket";
 
 const NavBar = () => {
     const isLoggedIn = useSelector(getIsLoggedIn());
     const basCount = useSelector(getSummaryBasketCounter());
+    const basPrice = useSelector(getSummaryBasketPrice());
 
     const [isOpen, setOpen] = useState(false);
     const [isOpenBurg, setOpenBurg] = useState(false);
@@ -30,7 +34,9 @@ const NavBar = () => {
                     <Link to="/basket">
                         <button className="btn btn-danger rounded-pill px-4 position-relative  me-3">
                             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill fs-6 bg-info">
-                                {isLoggedIn ? basCount : 0}
+                                {isLoggedIn && basCount > 0
+                                    ? `${basPrice} ₽`
+                                    : 0}
                             </span>
                             <span className="icon-basket position-relative z-1 me-2"></span>
                             корзина

@@ -7,11 +7,16 @@ const basketSlice = createSlice({
     reducers: {
         basketItemCreated: (state, action) => {
             state.entities.push(action.payload);
+        },
+        basketItemRemoved: (state, action) => {
+            state.entities = state.entities.filter(
+                (i) => i._id !== action.payload
+            );
         }
     }
 });
 const { reducer: basketReducer, actions } = basketSlice;
-const { basketItemCreated } = actions;
+const { basketItemCreated, basketItemRemoved } = actions;
 
 export function createBasItem(payload) {
     return async function (dispatch) {
@@ -19,7 +24,15 @@ export function createBasItem(payload) {
     };
 }
 
+export const removeItemBasket = (id) => async (dispatch) => {
+    dispatch(basketItemRemoved(id));
+};
+
 export const getBasket = () => (state) => state.basket.entities;
+
+export const getBasketItemById = (id) => (state) => {
+    return state.basket.entities.find((b) => b._id === id);
+};
 
 export const getSummaryBasketCounter = () => (state) => {
     if (state.basket.entities) {

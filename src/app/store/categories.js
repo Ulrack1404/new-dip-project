@@ -38,6 +38,12 @@ export const loadCategoriesList = () => async (dispatch, getState) => {
     }
 };
 
+export const getCategoryById = (id) => (state) => {
+    if (state.categories.entities) {
+        return state.categories.entities.find((c) => c._id === id);
+    }
+};
+
 const { reducer: categoriesReducer, actions } = categoriesSlice;
 const { categoriesRequested, categoriesReceived, categoriesRequestFailed } = actions;
 

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+import { getCategoryById } from "../../store/categories";
 
 const FoodPrev = ({ _id, name, category, price, imageUrl }) => {
+    const getCategory = useSelector(getCategoryById(category));
     return (
         <Link to={`/foods/${_id}`}>
             <div className="d-flex m-2 shadow-prev transition-prev">
@@ -13,12 +17,12 @@ const FoodPrev = ({ _id, name, category, price, imageUrl }) => {
                     />
                 </div>
                 <div className=" m-1 flex-grow-1">
-                    <h2 className="title_prev">{name}</h2>
-                    <p className="category">{category.name}</p>
-                    <p>{price} р.</p>
+                    <h2 className="fs-4 fw-bold">{name}</h2>
+                    <p className="fs-3 text-danger">{price} р.</p>
+                    <p className="fs-6 ">{getCategory.name}</p>
                     <p>
                         <button className="btn btn-warning color-w  rounded-pill px-4 position-relative">
-                            Добавить в корзину
+                            Перейти для добавления в корзину
                         </button>
                     </p>
                 </div>

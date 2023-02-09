@@ -10,7 +10,7 @@ const Main = () => {
         <div className="gradient">
             <div className="d-flex container py-5 ">
                 <div className="col-6">
-                    <h1 className="h1 color-w">Доставка еды в Тамбове</h1>
+                    <h1 className="h1 color-w mb-5">Доставка еды в нашем городе</h1>
                     <p className=" color-w">
                         Наше кафе открылось в 2023г. Это двухэтажное здание с
                         цокольным этажом и стоянкой для автомобилей. В кафе

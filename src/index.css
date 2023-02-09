@@ -46,13 +46,6 @@ code {
     -o-object-fit: cover;
     object-fit: cover;
 }
-.title_prev {
-    font-size: 20px;
-    font-weight: bold;
-}
-.category {
-    font-style: italic;
-}
 
 .logotip {
     height: 100px;

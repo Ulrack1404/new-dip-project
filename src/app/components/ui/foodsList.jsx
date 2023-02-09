@@ -22,7 +22,7 @@ const FoodsList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedProf, setSelectedProf] = useState();
     const [searchQuery, setSearchQuery] = useState("");
-    const [sortBy, setSortBy] = useState({ path: "price", order: "asc" });
+    const [sortBy, setSortBy] = useState({ path: "price", order: "desc" });
     const pageSize = 4;
 
     useEffect(() => {
