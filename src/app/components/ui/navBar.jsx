@@ -85,7 +85,7 @@ const NavBar = () => {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <Link
-                                    className="nav-link active"
+                                    className="nav-link active fs-5 text-danger"
                                     aria-current="page"
                                     to={"/foods"}
                                 >
@@ -93,14 +93,14 @@ const NavBar = () => {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link">О нас</a>
+                                <a className="nav-link fs-5 text-danger">О нас</a>
                             </li>
                             {isLoggedIn && (
                                 <li className="nav-item">
                                     <Link
-                                        className="nav-link active"
+                                        className="nav-link active fs-5 text-danger"
                                         aria-current="page"
-                                        to={"/foods"}
+                                        to={"/edit"}
                                     >
                                         Редактировать каталог
                                     </Link>

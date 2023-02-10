@@ -15,6 +15,7 @@ const FoodPage = ({ foodId }) => {
     const food = useSelector(getFoodById(foodId));
 
     const [counter, setCounter] = useState(1);
+
     const handleIncrement = () => {
         setCounter((prevState) => (prevState += 1));
     };

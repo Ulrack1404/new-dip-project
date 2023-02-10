@@ -34,6 +34,12 @@ export function getTokenExpiresDate() {
 export function getUserId() {
     return localStorage.getItem(USERID_KEY);
 }
+export function setFoodId(foodId) {
+    return localStorage.setItem("foodId", foodId);
+}
+export function getFoodId() {
+    return localStorage.getItem("foodId");
+}
 
 const localStorageService = {
     setTokens,
@@ -41,6 +47,8 @@ const localStorageService = {
     getRefreshToken,
     getTokenExpiresDate,
     getUserId,
-    removeAuthData
+    removeAuthData,
+    setFoodId,
+    getFoodId
 };
 export default localStorageService;

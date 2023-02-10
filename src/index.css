@@ -101,6 +101,7 @@ code {
 
 .img-prev-radius img {
     border-radius: 20% 0 10% 0;
+    overflow: hidden;
 }
 .img-prev-radius-div {
     border-radius: 10%;
@@ -137,4 +138,11 @@ code {
 }
 .font-weight {
     font-weight: bold;
+}
+.h-100px{
+    height: 200px;
+    width: 100%;
+}
+.h-100px img{
+    object-fit: contain;
 }

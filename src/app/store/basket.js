@@ -24,7 +24,7 @@ export function createBasItem(payload) {
     };
 }
 
-export const removeItemBasket = (id) => async (dispatch) => {
+export const removeItemBasket = (id) => (dispatch) => {
     dispatch(basketItemRemoved(id));
 };
 

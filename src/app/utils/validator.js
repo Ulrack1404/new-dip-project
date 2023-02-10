@@ -6,7 +6,7 @@ export function validator(data, config) {
             case "isRequired": {
                 if (typeof data === "boolean") {
                     statusValidate = !data;
-                } else {
+                } else if (typeof data !== "number") {
                     statusValidate = data.trim() === "";
                 }
                 break;
@@ -22,7 +22,7 @@ export function validator(data, config) {
                 break;
             }
             case "isContainDigit": {
-                const digitRegExp = /\d+/g;
+                const digitRegExp = /^\d+$/g;
                 statusValidate = !digitRegExp.test(data);
                 break;
             }

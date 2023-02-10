@@ -7,6 +7,7 @@ import Main from "./app/layouts/main";
 import AppLoader from "./app/components/ui/hoc/appLoader";
 import ProtectedRoute from "./app/components/common/protectedRoute";
 import Basket from "./app/components/ui/basket";
+import Edit from "./app/components/ui/edit";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <NavBar />
                 <Switch>
                     <ProtectedRoute path="/basket" component={Basket} />
+                    <ProtectedRoute path="/edit/:foodId?" component={Edit} />
                     <Route path="/foods/:foodId?" component={Foods} />
                     <Route path="/login/:type?" component={Login} />
                     <Route path="/" exact component={Main} />

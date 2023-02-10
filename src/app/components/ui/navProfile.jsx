@@ -28,7 +28,7 @@ function NavProfile() {
             </div>
             <div className={"w-100 dropdown-menu" + (isOpen ? " show" : "")}>
                 <div className="dropdown-item">
-                    <button onClick={logOut}>Выйти</button>
+                    <button onClick={logOut} className="btn d-block w-100 btn-warning" >Выйти</button>
                 </div>
             </div>
         </div>
