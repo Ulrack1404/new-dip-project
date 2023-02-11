@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { getFoods } from "../../store/foods";
 import AddFood from "./addFood";
-// import TableData from "./tableData";
 import TableData from "./tableData";
 
 const EditFoods = () => {

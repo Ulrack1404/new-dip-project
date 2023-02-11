@@ -56,21 +56,13 @@ const LoginForm = () => {
     };
     const isValid = Object.keys(errors).length === 0;
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     const isValid = validate();
-    //     if (!isValid) return;
-    //     console.log(data);
-    // };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
         const redirect = history.location.state
-        ? history.location.state.from.pathname
-        : "/";
-        console.log(data);
+            ? history.location.state.from.pathname
+            : "/";
         dispatch(signIn({ payload: data, redirect }));
     };
 

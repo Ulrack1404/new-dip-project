@@ -276,9 +276,6 @@ const foods = [
     }
 ];
 
-// if (!localStorage.getItem("foods")) {
-//     localStorage.setItem("foods", JSON.stringify(foods));
-// }
 const fetchAll = () =>
     new Promise((resolve) => {
         window.setTimeout(function () {

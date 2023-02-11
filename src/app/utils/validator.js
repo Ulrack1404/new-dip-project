@@ -22,6 +22,11 @@ export function validator(data, config) {
                 break;
             }
             case "isContainDigit": {
+                const digitRegExp = /\d+/g;
+                statusValidate = !digitRegExp.test(data);
+                break;
+            }
+            case "isOnlyDigit": {
                 const digitRegExp = /^\d+$/g;
                 statusValidate = !digitRegExp.test(data);
                 break;

@@ -69,13 +69,6 @@ const AddFood = () => {
         history.push("/foods");
     };
 
-    // useEffect(() => {
-    //     if (!categoriesLoading && !data) {
-    //         setData({ ...food });
-    //         setFoodId(foodId);
-    //     }
-    // }, [categoriesLoading, data]);
-
     useEffect(() => {
         if (isLoading) {
             setIsLoading(false);
@@ -84,7 +77,7 @@ const AddFood = () => {
 
     const validatorConfig = {
         price: {
-            isContainDigit: {
+            isOnlyDigit: {
                 message: "Вводите только числа"
             }
         }

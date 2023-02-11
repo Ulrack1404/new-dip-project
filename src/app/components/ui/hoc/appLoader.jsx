@@ -15,7 +15,6 @@ const AppLoader = ({ children }) => {
     const foodsLoading = useSelector(getFoodsLoadingStatus());
     const categoriesLoading = useSelector(getCategoriesLoadingStatus());
     const isLoggedIn = useSelector(getIsLoggedIn());
-    // const usersStatusLoading = useSelector(getUsersLoadingStatus());
     useEffect(() => {
         dispatch(loadFoodsList());
         dispatch(loadCategoriesList());

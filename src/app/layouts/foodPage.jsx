@@ -4,9 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/common/loader/loader";
 import { getFoodById } from "../store/foods";
-// -------------
 import { createBasItem } from "../store/basket";
-// -----------------
 
 const FoodPage = ({ foodId }) => {
     const dispatch = useDispatch();
@@ -24,7 +22,6 @@ const FoodPage = ({ foodId }) => {
             setCounter((prevState) => (prevState -= 1));
         }
     };
-    // ??? добавление в корзину------------------
 
     const addToBasket = () => {
         dispatch(

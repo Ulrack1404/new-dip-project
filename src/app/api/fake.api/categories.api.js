@@ -37,7 +37,3 @@ export const fetchAll = () =>
             resolve(categories);
         }, 3000);
     });
-
-// export const fetchAll = () => {
-//     return categories;
-// };

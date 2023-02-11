@@ -119,7 +119,6 @@ export const signUp = (data) => async (dispatch) => {
     try {
         const content = await authService.register({ email, password });
         localStorageService.setTokens(content);
-        // dispatch(usersReceived(content));
         dispatch(authRequestSuccess(content.localId));
         const newUser = {
             id: content.localId,

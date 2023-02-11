@@ -83,7 +83,7 @@ const EditFoodPage = ({ foodId }) => {
             isRequired: {
                 message: "Введите цену"
             },
-            isContainDigit: {
+            isOnlyDigit: {
                 message: "Вводите только числа"
             }
         }

@@ -3,13 +3,12 @@ import {
     getBasket,
     removeItemBasket,
     getSummaryBasketCounter,
-    getSummaryBasketPrice,
-    createBasItem,
-    getBasketItemById
+    getSummaryBasketPrice
 } from "../../store/basket";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import TableBasketData from "./tableBasketData";
 
 const Basket = () => {
     const dispatch = useDispatch();
@@ -90,40 +89,13 @@ const Basket = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {foodsInBasket.map((item) => (
-                                    <tr key={item._id}>
-                                        {Object.keys(columns).map((column) => (
-                                            <td key={column}>
-                                                {!item[column] ? (
-                                                    <button
-                                                        onClick={() =>
-                                                            handleDelete(
-                                                                item._id
-                                                            )
-                                                        }
-                                                        className="btn btn-danger rounded-pill px-4"
-                                                    >
-                                                        Удалить
-                                                    </button>
-                                                ) : item[column] ===
-                                                  item.imageUrl ? (
-                                                    <div
-                                                        key={item}
-                                                        className="_ibg img-prev-radius m-2 col-3 p-5"
-                                                    >
-                                                        <img
-                                                            src={require(`../../../img/categories/${item.imageUrl}.jpg`)}
-                                                            alt=""
-                                                        />
-                                                    </div>
-                                                ) : (
-                                                    <span className="fs-5">
-                                                        {" "}
-                                                        {item[column]}
-                                                    </span>
-                                                )}
-                                            </td>
-                                        ))}
+                                {foodsInBasket.map((food) => (
+                                    <tr key={food._id}>
+                                        <TableBasketData
+                                            food={food}
+                                            columns={columns}
+                                            handleDelete={handleDelete}
+                                        />
                                     </tr>
                                 ))}
                             </tbody>
