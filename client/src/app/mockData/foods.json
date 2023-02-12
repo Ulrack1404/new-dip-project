@@ -1,0 +1,242 @@
+[
+    {
+        "_id": "93743bc2f3e7475cbb665b288930230a",
+        "name": "Маргарита",
+        "category": "191c84f1a8dd4a1a863bfe7dbe1d37bb",
+        "price": 320,
+        "description": "помидоры, моцарелла, базилик",
+        "imageUrl": "pizza/pizza-margarita"
+    },
+    {
+        "_id": "6e4d327939b741cb93abdcecf6ef0be7",
+        "name": "Детская",
+        "category": "191c84f1a8dd4a1a863bfe7dbe1d37bb",
+        "price": 330,
+        "description": "ветчина, помидоры, сыр",
+        "imageUrl": "pizza/pizza-detskaya"
+    },
+    {
+        "_id": "aeb0d4aceff043ae8dbafd8a42df85da",
+        "name": "Ветчина с ананасом",
+        "category": "191c84f1a8dd4a1a863bfe7dbe1d37bb",
+        "price": 360,
+        "description": "ветчина, ананас, перец болгарский, майонез",
+        "imageUrl": "pizza/pizza-vetchina-s-ananasom"
+    },
+    {
+        "_id": "30ea3ed6ad794f80b134e787a592ee85",
+        "name": "Ветчина с грибами",
+        "category": "191c84f1a8dd4a1a863bfe7dbe1d37bb",
+        "price": 400,
+        "description": "ветчина, грибы, помидоры, сыр, лук",
+        "imageUrl": "pizza/pizza-vetchina-s-gribami"
+    },
+    {
+        "_id": "acdc79551ee6447699391fb7012adece",
+        "name": "Аромат Италии",
+        "category": "191c84f1a8dd4a1a863bfe7dbe1d37bb",
+        "price": 500,
+        "description": "помидоры, брынза, оливки, перец, сыр",
+        "imageUrl": "pizza/pizza-aromat-italii"
+    },
+    {
+        "_id": "3055958544084b5a8b94a319fa4c2ef9",
+        "name": "Корсиканский",
+        "category": "6ea5c4dde56f412095012d64171c75e1",
+        "price": 225,
+        "description": "помидоры, оливки, фета, огурец, перец болгарский",
+        "imageUrl": "salats/salat-korsikanskiy"
+    },
+    {
+        "_id": "6818f858955949bea9b7760e142a31ba",
+        "name": "Салат из авокадо с фетой",
+        "category": "6ea5c4dde56f412095012d64171c75e1",
+        "price": 230,
+        "description": "лист салата, помидор, сыр фета, авокадо, огурец, оливки",
+        "imageUrl": "salats/salat_s_avokado_i_sirom_feta"
+    },
+    {
+        "_id": "6b615a47bed344d59d9d5d9caae139e8",
+        "name": "Сырная корзиночка",
+        "category": "6ea5c4dde56f412095012d64171c75e1",
+        "price": 175,
+        "description": "кальмары, яйцо, грибы, лук, морковь, майонез",
+        "imageUrl": "salats/salat-syrnaya-korzinochka"
+    },
+    {
+        "_id": "e90ab1c32cc2417c811fc4241a49ad2e",
+        "name": "Нежный",
+        "category": "6ea5c4dde56f412095012d64171c75e1",
+        "price": 165,
+        "description": "кальмары, яйцо, сыр",
+        "imageUrl": "salats/nejniy"
+    },
+    {
+        "_id": "d972ac6215304aabb3dcc59cb09db86f",
+        "name": "Оливье с сёмгой",
+        "category": "6ea5c4dde56f412095012d64171c75e1",
+        "price": 265,
+        "description": "семга с картофель, яйцо, морковь, огурец, майонез",
+        "imageUrl": "salats/salat-olivie-s-semgoy"
+    },
+    {
+        "_id": "afce28d2954e4a9eb144f591799aaa6f",
+        "name": "Coca-cola",
+        "category": "5483f29f32424c5988000ca9d2a38711",
+        "price": 105,
+        "description": "0,5 л",
+        "imageUrl": "drinks/koka-kolla2"
+    },
+    {
+        "_id": "054cf515e0cf4893bf0bc60c4ca4ff8b",
+        "name": "Bonaqua",
+        "category": "5483f29f32424c5988000ca9d2a38711",
+        "price": 75,
+        "description": "0,5 л",
+        "imageUrl": "drinks/BONAKVA"
+    },
+    {
+        "_id": "f71d0f609f1c4b199225e9d0007d29a5",
+        "name": "Sprite",
+        "category": "5483f29f32424c5988000ca9d2a38711",
+        "price": 105,
+        "description": "0,5 л",
+        "imageUrl": "drinks/SPRITE2"
+    },
+    {
+        "_id": "e714167d3e3f46b9a8241e521aa52f00",
+        "name": "Коктейль Фруктовый Микс",
+        "category": "5483f29f32424c5988000ca9d2a38711",
+        "price": 150,
+        "description": "Соки: персиковый, вишневый, ананасовый, мороженое, взбитые сливки, банан",
+        "imageUrl": "drinks/fruktovyi_mix"
+    },
+    {
+        "_id": "3065aee237f243a4a2ff183155210a8b",
+        "name": "Коктейль «Паук Черная вдова»",
+        "category": "5483f29f32424c5988000ca9d2a38711",
+        "price": 100,
+        "description": "пепси, мороженое, шоколад",
+        "imageUrl": "drinks/pauk"
+    },
+    {
+        "_id": "54c1d202c1814f9d87e1e3d3d968b705",
+        "name": "Банан",
+        "category": "7cccc5bc5ded4e95acd33e1b738778df",
+        "price": 30,
+        "description": "",
+        "imageUrl": "fruits/banan1"
+    },
+    {
+        "_id": "632b1b9b280a4d658044bbe877a98b3c",
+        "name": "Лимон",
+        "category": "7cccc5bc5ded4e95acd33e1b738778df",
+        "price": 50,
+        "description": "",
+        "imageUrl": "fruits/lemon1"
+    },
+    {
+        "_id": "6c0a3b43d8f0406381f57275211c2cd8",
+        "name": "Виноград",
+        "category": "7cccc5bc5ded4e95acd33e1b738778df",
+        "price": 55,
+        "description": "",
+        "imageUrl": "fruits/vinograd1"
+    },
+    {
+        "_id": "2a0143215d53408e9cd5f40802f36238",
+        "name": "Киви",
+        "category": "7cccc5bc5ded4e95acd33e1b738778df",
+        "price": 60,
+        "description": "",
+        "imageUrl": "fruits/kivi1"
+    },
+    {
+        "_id": "c67cc4388c8440e583015691b4bc1500",
+        "name": "Апельсин",
+        "category": "7cccc5bc5ded4e95acd33e1b738778df",
+        "price": 75,
+        "description": "",
+        "imageUrl": "fruits/apelsin1"
+    },
+    {
+        "_id": "3bd93aa735f94d72a10de5bbdb6f73f3",
+        "name": "Запечённый с лососем",
+        "category": "a875e06226a443359830436e006a520b",
+        "price": 255,
+        "description": "Лосось, сливочный сыр, соус унаги, соус лав",
+        "imageUrl": "rolls/sushi_zapechenie_s_lososem"
+    },
+    {
+        "_id": "58723d0924c44a88b3eec9762209aa74",
+        "name": "Филадельфия",
+        "category": "a875e06226a443359830436e006a520b",
+        "price": 270,
+        "description": "Лосось с/с, сливочный сыр, огурец",
+        "imageUrl": "rolls/sushi_filadelphiya"
+    },
+    {
+        "_id": "4167746dae1f42eaaaea198a153899be",
+        "name": "Запеченный краб",
+        "category": "a875e06226a443359830436e006a520b",
+        "price": 255,
+        "description": "Лосось, сливочный сыр, тобико, кунжут, соус унаги, соус лав со снежным крабом",
+        "imageUrl": "rolls/sushi_zapechenie_s_krabom"
+    },
+    {
+        "_id": "908909e710a545ac8cf6d7a0b3620858",
+        "name": "Каппа маки",
+        "category": "a875e06226a443359830436e006a520b",
+        "price": 65,
+        "description": "С огурцом",
+        "imageUrl": "rolls/shushi_kappa_maki"
+    },
+    {
+        "_id": "89af98b7b7c74f88b475c3d0d7c98282",
+        "name": "Унаги маки",
+        "category": "a875e06226a443359830436e006a520b",
+        "price": 170,
+        "description": "С угрем",
+        "imageUrl": "rolls/shushi_unagi_maki"
+    },
+    {
+        "_id": "ccdc6db7d0044140b4a0630460617f45",
+        "name": "Пирожное Медовое",
+        "category": "01ec45f53e454157a5fbcf7a987556b7",
+        "price": 90,
+        "description": "",
+        "imageUrl": "deserts/pirojenoe_medovoe"
+    },
+    {
+        "_id": "7c164d280c1641c6b8a84767128e0ece",
+        "name": "Пирожное «Чизкейк»",
+        "category": "01ec45f53e454157a5fbcf7a987556b7",
+        "price": 100,
+        "description": "",
+        "imageUrl": "deserts/chizckake"
+    },
+    {
+        "_id": "d986148ff5c34649a63478c252aa24d3",
+        "name": "Мороженое «Мулатка»",
+        "category": "01ec45f53e454157a5fbcf7a987556b7",
+        "price": 120,
+        "description": "шоколадный пломбир, вафельные трубочки, орехи, шоколадный сироп",
+        "imageUrl": "deserts/morojenoe_mulatka1"
+    },
+    {
+        "_id": "c4904bf42c2a47bd9509972e86aab31f",
+        "name": "Десерт фруктовый «Лакомка»",
+        "category": "01ec45f53e454157a5fbcf7a987556b7",
+        "price": 130,
+        "description": "банан, апельсин, зефир, йогурт, шоколад",
+        "imageUrl": "deserts/fruktovyi_salat1"
+    },
+    {
+        "_id": "29bc0863f0bd40f1adc0b506693fb006",
+        "name": "Мороженое «Лесная сказка»",
+        "category": "01ec45f53e454157a5fbcf7a987556b7",
+        "price": 145,
+        "description": "фрукты, джем, сливки, орех",
+        "imageUrl": "deserts/moroj_lesnaya_skazka1"
+    }
+]
