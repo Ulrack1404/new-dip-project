@@ -51,6 +51,7 @@ router.post("/signUp", [
     }
 ]);
 
+//   /api/auth/signInWithPassword
 router.post("/signInWithPassword", [
     check("email", "Email некорректный").normalizeEmail().isEmail(),
     check("password", "Пароль не может быть пустым").exists(),
