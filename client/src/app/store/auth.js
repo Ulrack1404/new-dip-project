@@ -100,12 +100,11 @@ export const loadUsersList = () => async (dispatch) => {
 export const signIn =
     ({ payload, redirect }) =>
     async (dispatch) => {
-        const { email, password } = payload;
         dispatch(authRequested());
         try {
-            const data = await authService.login({ email, password });
-            dispatch(authRequestSuccess(data.localId));
+            const data = await authService.login(payload);
             localStorageService.setTokens(data);
+            dispatch(authRequestSuccess(data.userId));
             history.push(redirect);
         } catch (error) {
             const errorMessage = errorCatcher(error);
@@ -113,25 +112,12 @@ export const signIn =
         }
     };
 
-export const signUp = (data) => async (dispatch) => {
-    const { email, password } = data;
-    dispatch(authRequested);
+export const signUp = (payload) => async (dispatch) => {
+    dispatch(authRequested());
     try {
-        const content = await authService.register({ email, password });
-        localStorageService.setTokens(content);
-        dispatch(authRequestSuccess(content.localId));
-        const newUser = {
-            id: content.localId,
-            name: data.username,
-            created_at: Date.now(),
-            email: data.email,
-            image: `https://avatars.dicebear.com/api/avataaars/${(
-                Math.random() + 1
-            )
-                .toString(36)
-                .substring(7)}.svg`
-        };
-        dispatch(createUser(newUser));
+        const data = await authService.register(payload);
+        localStorageService.setTokens(data);
+        dispatch(authRequestSuccess(data.userId));
     } catch (error) {
         const errorMessage = errorCatcher(error);
         dispatch(authSignUpRequestFailed(errorMessage));
@@ -144,21 +130,9 @@ export const logout = () => (dispatch) => {
     history.push("/");
 };
 
-function createUser(data) {
-    return async function (dispatch) {
-        try {
-            const { content } = await userService.create(data.id, data);
-            dispatch(userCreated(content));
-            return content;
-        } catch (error) {
-            errorCatcher(error);
-        }
-    };
-}
-
 export const getCurrentUserData = () => (state) => {
     return state.auth.entities
-        ? state.auth.entities.find((user) => user.id === state.auth.userId)
+        ? state.auth.entities.find((user) => user._id === state.auth.userId)
         : null;
 };
 export const getAuthUserId = () => (state) => state.auth.userId;

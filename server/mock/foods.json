@@ -42,7 +42,7 @@
     {
         "_id": "3055958544084b5a8b94a319fa4c2ef9",
         "name": "Корсиканский",
-        "category": "Пицца",
+        "category": "Салаты",
         "price": 225,
         "description": "помидоры, оливки, фета, огурец, перец болгарский",
         "imageUrl": "salats/salat-korsikanskiy"
@@ -202,7 +202,7 @@
     {
         "_id": "ccdc6db7d0044140b4a0630460617f45",
         "name": "Пирожное Медовое",
-        "category": "01ec45f53e454157a5fbcf7a987556b7",
+        "category": "Десерты",
         "price": 90,
         "description": "",
         "imageUrl": "deserts/pirojenoe_medovoe"
@@ -210,7 +210,7 @@
     {
         "_id": "7c164d280c1641c6b8a84767128e0ece",
         "name": "Пирожное «Чизкейк»",
-        "category": "01ec45f53e454157a5fbcf7a987556b7",
+        "category": "Десерты",
         "price": 100,
         "description": "",
         "imageUrl": "deserts/chizckake"
@@ -218,7 +218,7 @@
     {
         "_id": "d986148ff5c34649a63478c252aa24d3",
         "name": "Мороженое «Мулатка»",
-        "category": "01ec45f53e454157a5fbcf7a987556b7",
+        "category": "Десерты",
         "price": 120,
         "description": "шоколадный пломбир, вафельные трубочки, орехи, шоколадный сироп",
         "imageUrl": "deserts/morojenoe_mulatka1"
@@ -226,7 +226,7 @@
     {
         "_id": "c4904bf42c2a47bd9509972e86aab31f",
         "name": "Десерт фруктовый «Лакомка»",
-        "category": "01ec45f53e454157a5fbcf7a987556b7",
+        "category": "Десерты",
         "price": 130,
         "description": "банан, апельсин, зефир, йогурт, шоколад",
         "imageUrl": "deserts/fruktovyi_salat1"
@@ -234,7 +234,7 @@
     {
         "_id": "29bc0863f0bd40f1adc0b506693fb006",
         "name": "Мороженое «Лесная сказка»",
-        "category": "01ec45f53e454157a5fbcf7a987556b7",
+        "category": "Десерты",
         "price": 145,
         "description": "фрукты, джем, сливки, орех",
         "imageUrl": "deserts/moroj_lesnaya_skazka1"

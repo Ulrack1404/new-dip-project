@@ -1,7 +1,7 @@
 import httpService from "./http.service";
 import localStorageService from "./localStorage.service";
 
-const foodEndpoint = "food/";
+const foodEndpoint = "foods/";
 
 const foodService = {
     get: async () => {
@@ -16,10 +16,7 @@ const foodService = {
         return data;
     },
     create: async (payload) => {
-        const { data } = await httpService.put(
-            foodEndpoint + payload._id,
-            payload
-        );
+        const { data } = await httpService.post(foodEndpoint, payload);
         return data;
     },
     remove: async (foodId) => {

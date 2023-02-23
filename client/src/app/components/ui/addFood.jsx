@@ -16,7 +16,6 @@ import { createFoodData } from "../../store/foods";
 
 const AddFood = () => {
     const [data, setData] = useState({
-        _id: "",
         name: "",
         category: "",
         description: "",
@@ -39,7 +38,11 @@ const AddFood = () => {
         setErrors(errors);
         return Object.keys(errors).length === 0;
     };
-    const isValid = Object.keys(errors).length === 0;
+    const isValid =
+        Object.keys(errors).length === 0 &&
+        data.name &&
+        data.category &&
+        data.price;
 
     const handleChange = (target) => {
         setData((prevState) => ({
@@ -52,17 +55,10 @@ const AddFood = () => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
-        console.log("dataUpdate submit:", {
-            ...data,
-            price: Number(data.price),
-            _id: nanoid(32),
-            imageUrl: "template"
-        });
         dispatch(
             createFoodData({
                 ...data,
                 price: Number(data.price),
-                _id: nanoid(32),
                 imageUrl: "template"
             })
         );

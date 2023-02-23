@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 
 const User = require("../models/User");
-const { generateUserData } = require("../utils/helpers");
+const { generateUserImage } = require("../utils/helpers");
 const tokenService = require("../services/token.service");
 const router = express.Router({ mergeParams: true });
 
@@ -38,7 +38,8 @@ router.post("/signUp", [
             const hashedPassword = await bcrypt.hash(password, 12);
             const newUser = await User.create({
                 ...req.body,
-                password: hashedPassword
+                password: hashedPassword,
+                ...generateUserImage()
             });
             const tokens = tokenService.generate({ _id: newUser._id });
             await tokenService.save(newUser._id, tokens.refreshToken);
@@ -103,6 +104,7 @@ function isTokenInvalid(data, dbToken) {
     return !data || !dbToken || data._id !== dbToken?.user?.toString();
 }
 
+//   /api/auth/token
 router.post("/token", async (req, res) => {
     try {
         const { refresh_token: refreshToken } = req.body;

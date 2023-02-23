@@ -44,33 +44,41 @@ const EditFoods = () => {
                 <h1 className="fs-2 text-center">
                     Страница редактирования меню
                 </h1>
-                <div className="d-flex container">
+                <div className="d-flex container justify-content-between">
                     <div className="w-25 border me-2">
-                        <AddFood/>
+                        <AddFood />
                     </div>
-                    <div className="w-75 border">
-                        <table className="table align-middle">
-                            <thead>
-                                <tr>
-                                    {Object.keys(columns).map((column) => (
-                                        <th key={column} scope="col">
-                                            {columns[column].name}
-                                        </th>
-                                    ))}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {foods.map((item) => (
-                                    <tr key={item._id}>
-                                        <TableData
-                                            food={item}
-                                            columns={columns}
-                                        />
+                    {foods.length > 0 ? (
+                        <div className="w-75 border">
+                            <table className="table align-middle">
+                                <thead>
+                                    <tr>
+                                        {Object.keys(columns).map((column) => (
+                                            <th key={column} scope="col">
+                                                {columns[column].name}
+                                            </th>
+                                        ))}
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody>
+                                    {foods.map((item) => (
+                                        <tr key={item._id}>
+                                            <TableData
+                                                food={item}
+                                                columns={columns}
+                                            />
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    ) : (
+                        <div className="flex-grow-1">
+                            <div className="fs-5 text-center mt-5">
+                                К сожалению ничего нет!
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         );

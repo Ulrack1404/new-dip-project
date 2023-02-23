@@ -19,15 +19,17 @@ router
     })
     .post(auth, async (req, res) => {
         try {
+            console.log({ ...req.body });
             const newFood = await Food.create({
-                ...req.body,
-                foodId: req.food._id
+                ...req.body
+                // foodId: req.food._id
             });
             res.status(201).send(newFood);
         } catch (e) {
             res.status(500).json({
                 message: "На сервере произошла ошибка. Попробуйте позже"
             });
+            console.log(e.message);
         }
     });
 
@@ -36,13 +38,13 @@ router
     .delete(auth, async (req, res) => {
         try {
             const { foodId } = req.params;
-            const removedFood = await Food.findById(foodId);
-            await removedFood.remove();
+            await Food.findByIdAndRemove(foodId);
             return res.send(null);
         } catch (e) {
             res.status(500).json({
                 message: "На сервере произошла ошибка. Попробуйте позже"
             });
+            console.log(e.message);
         }
     })
     .patch(auth, async (req, res) => {
@@ -57,6 +59,7 @@ router
             res.status(500).json({
                 message: "На сервере произошла ошибка. Попробуйте позже"
             });
+            console.log(e.message);
         }
     });
 
