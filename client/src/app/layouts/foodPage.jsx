@@ -4,13 +4,19 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/common/loader/loader";
 import { getFoodById } from "../store/foods";
-import { createBasItem } from "../store/basket";
+import {
+    createBasItem,
+    getBasketItemById,
+    addCountBasket
+} from "../store/basket";
 
 const FoodPage = ({ foodId }) => {
     const dispatch = useDispatch();
+    const [isInBasket, setInBasket] = useState(false);
 
     const history = useHistory();
     const food = useSelector(getFoodById(foodId));
+    const basketItem = useSelector(getBasketItemById(foodId));
 
     const [counter, setCounter] = useState(1);
 
@@ -24,14 +30,21 @@ const FoodPage = ({ foodId }) => {
     };
 
     const addToBasket = () => {
-        dispatch(
-            createBasItem({
-                ...food,
-                basketCounter: counter,
-                basketPrice: counter * food.price
-            })
-        );
+        if (!basketItem) {
+            dispatch(
+                createBasItem({
+                    ...food,
+                    basketCounter: counter,
+                    basketPrice: counter * food.price
+                })
+            );
+        }
     };
+
+    function inBasket() {
+        addToBasket();
+        setInBasket(true);
+    }
 
     const handleClick = () => {
         history.push("/foods");
@@ -83,12 +96,22 @@ const FoodPage = ({ foodId }) => {
                         <div className="w-25"></div>
                     </div>
                     <div>
-                        <button
-                            className="btn btn-warning rounded-pill px-4 me-4"
-                            onClick={addToBasket}
-                        >
-                            В корзину
-                        </button>
+                        {!isInBasket ? (
+                            <button
+                                className="btn btn-warning rounded-pill px-4 me-4"
+                                onClick={inBasket}
+                            >
+                                В корзину
+                            </button>
+                        ) : (
+                            <button
+                                className="btn btn-success rounded-pill px-4 me-4"
+                                disabled={true}
+                            >
+                                Добавлено
+                            </button>
+                        )}
+
                         <button
                             onClick={handleClick}
                             className="btn btn-danger rounded-pill px-4 position-relative "

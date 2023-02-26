@@ -18,7 +18,7 @@ const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
                         key={"page_" + page}
                     >
                         <button
-                            className="page-link"
+                            className="page-link border-none rounded-circle px-3 fst-italic"
                             onClick={() => onPageChange(page)}
                         >
                             {page}

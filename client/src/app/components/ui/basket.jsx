@@ -104,6 +104,9 @@ const Basket = () => {
                 ) : (
                     <div>
                         <h1 className="text-center fs-1 my-5">Корзина пуста</h1>
+                        <div className="text-center fs-1">
+                        <i className="bi bi-cart-x"></i>
+                        </div>
                         <div className="d-flex justify-content-center">
                             <button
                                 onClick={handleClick}

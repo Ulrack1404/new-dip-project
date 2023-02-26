@@ -1,0 +1,25 @@
+.swiper {
+    padding: 0px 0px 50px 0px;
+    width: 100%;
+}
+
+.swiper-scrollbar{
+    height: 10px !important;
+}
+.swiper-scrollbar-drag{
+background-color: #dc3545;
+}
+.swiper-pagination{
+    bottom: 15px !important;
+    z-index: 100;
+}
+.swiper-pagination-bullet {
+    background-color: #a38819 !important;
+}
+.swiper-pagination-bullet-active {
+    background-color: #e61313 !important;
+}
+.swiper-pagination-bullet {
+    height: 20px;
+    width: 20px;
+}

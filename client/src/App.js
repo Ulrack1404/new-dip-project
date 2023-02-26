@@ -8,12 +8,16 @@ import AppLoader from "./app/components/ui/hoc/appLoader";
 import ProtectedRoute from "./app/components/common/protectedRoute";
 import Basket from "./app/components/ui/basket";
 import Edit from "./app/components/ui/edit";
+import { DarkModeProvider } from "./app/hooks/useDarkMode";
+import Footer from "./app/components/ui/footer";
 
 function App() {
     return (
         <div>
             <AppLoader>
-                <NavBar />
+                <DarkModeProvider>
+                    <NavBar />
+                </DarkModeProvider>
                 <Switch>
                     <ProtectedRoute path="/basket" component={Basket} />
                     <ProtectedRoute path="/edit/:foodId?" component={Edit} />
@@ -22,6 +26,7 @@ function App() {
                     <Route path="/" exact component={Main} />
                     <Redirect to="/" />
                 </Switch>
+                <Footer />
             </AppLoader>
         </div>
     );

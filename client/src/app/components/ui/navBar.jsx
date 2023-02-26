@@ -7,6 +7,7 @@ import {
     getSummaryBasketCounter,
     getSummaryBasketPrice
 } from "../../store/basket";
+import { useDarkMode } from "../../hooks/useDarkMode";
 
 const NavBar = () => {
     const isLoggedIn = useSelector(getIsLoggedIn());
@@ -16,11 +17,16 @@ const NavBar = () => {
     const [isOpen, setOpen] = useState(false);
     const [isOpenBurg, setOpenBurg] = useState(false);
 
+    const { isMode, toggleMode } = useDarkMode();
+
     const toggleMenuItem = () => {
         setOpen((prevState) => !prevState);
     };
     const toggleMenuBurg = () => {
         setOpenBurg((prevState) => !prevState);
+    };
+    const handleTheme = () => {
+        toggleMode(isMode);
     };
     return (
         <div className="container mt-1">
@@ -31,28 +37,44 @@ const NavBar = () => {
                 <div className="text-bold">с 10:00 до 23:00</div>
                 <div className="text-bold orange">+7 (4752) 12-34-56</div>
                 <div className="d-flex">
-                    <Link to="/basket">
-                        <button className="btn btn-danger rounded-pill px-4 position-relative  me-3">
-                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill fs-6 bg-info">
-                                {isLoggedIn && basCount > 0
-                                    ? `${basPrice} ₽`
-                                    : 0}
-                            </span>
-                            <span className="icon-basket position-relative z-1 me-2"></span>
-                            корзина
-                        </button>
-                    </Link>
-                    <div className="d-flex ">
+                    <div className="d-flex align-items-center">
+                        <Link to="/basket">
+                            <button className="btn btn-danger rounded-pill px-4 position-relative  me-3">
+                                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill fs-6 bg-info">
+                                    {isLoggedIn && basCount > 0
+                                        ? `${basPrice} ₽`
+                                        : 0}
+                                </span>
+                                <span className="icon-basket position-relative z-1 me-2"></span>
+                                корзина
+                            </button>
+                        </Link>
+                    </div>
+                    <div className="d-flex">
                         {isLoggedIn ? (
                             <NavProfile />
                         ) : (
                             <Link aria-current="page" to="/login">
-                                <button className="btn btn-danger rounded-pill px-4">
+                                <button className="btn btn-danger rounded-pill px-4 me-3">
                                     <span className="icon-sign-in position-relative z-1 me-2"></span>
                                     войти
                                 </button>
                             </Link>
                         )}
+                    </div>
+                    <div className="d-flex align-items-center">
+                        <button
+                            className="btn border rounded-pill px-4 border-danger"
+                            onClick={handleTheme}
+                        >
+                            {isMode ? (
+                                <i className="bi bi-brightness-high"></i>
+                            ) : (
+                                <i className="bi bi-moon-stars"></i>
+                            )}
+                            {/* <i class="bi bi-moon-stars"></i> */}
+                            {/* <i className="bi bi-brightness-high"></i> */}
+                        </button>
                     </div>
                 </div>
             </div>
@@ -93,7 +115,9 @@ const NavBar = () => {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link fs-5 text-danger">О нас</a>
+                                <a className="nav-link fs-5 text-danger">
+                                    О нас
+                                </a>
                             </li>
                             {isLoggedIn && (
                                 <li className="nav-item">

@@ -54,7 +54,6 @@ const EditFoodPage = ({ foodId }) => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
-        console.log("data submit:", data);
         dispatch(updateFoodData({ ...data }));
 
         history.push(`/foods/${foodId}`);
@@ -91,7 +90,6 @@ const EditFoodPage = ({ foodId }) => {
 
     useEffect(() => {
         validate();
-        console.log("data:", data);
     }, [data]);
 
     return (

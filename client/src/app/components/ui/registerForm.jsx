@@ -67,7 +67,6 @@ const RegisterForm = () => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
-        console.log({ ...data, name: data.username });
         dispatch(signUp({ ...data, name: data.username }));
         history.push("/");
     };

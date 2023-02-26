@@ -12,8 +12,6 @@ const TableBasketData = ({ food, columns, handleDelete }) => {
         dispatch(addCountBasket(food._id, counter));
     }, [counter]);
 
-    console.log("basketItem:", basketItem);
-
     const handleIncrement = (id) => {
         setCounter((prevState) => (prevState += 1));
     };

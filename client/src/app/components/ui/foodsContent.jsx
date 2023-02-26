@@ -17,6 +17,33 @@ const FoodsContent = ({ foods, onSort, selectedSort }) => {
             order: selectedSort.order === "asc" ? "desc" : "asc"
         });
     };
+    const renderSortArrow1 = (selectedSort) => {
+        if (selectedSort.path === "price") {
+            return (
+                <span className="ms-1">
+                    {selectedSort.order === "asc" ? (
+                        <i className="bi bi-chevron-down"></i>
+                    ) : (
+                        <i className="bi bi-chevron-up"></i>
+                    )}
+                </span>
+            );
+        }
+    };
+
+    const renderSortArrow2 = (selectedSort) => {
+        if (selectedSort.path === "name") {
+            return (
+                <span className="ms-1">
+                    {selectedSort.order === "asc" ? (
+                        <i className="bi bi-chevron-down"></i>
+                    ) : (
+                        <i className="bi bi-chevron-up"></i>
+                    )}
+                </span>
+            );
+        }
+    };
 
     return (
         <div className="d-flex flex-column border flex-grow-1">
@@ -25,13 +52,20 @@ const FoodsContent = ({ foods, onSort, selectedSort }) => {
                     onClick={handleSort1}
                     className="btn btn-danger castom-btn-orange m-1 rounded-pill"
                 >
-                    Сортировать по цене
+                    Сортировать по цене {renderSortArrow1(selectedSort)}
+                    {/* <span className="ms-1">
+                        {selectedSort.order === "asc" ? (
+                            <i className="bi bi-chevron-down"></i>
+                        ) : (
+                            <i className="bi bi-chevron-up"></i>
+                        )}
+                    </span> */}
                 </button>
                 <button
                     onClick={handleSort2}
                     className="btn btn-danger castom-btn-orange m-1 rounded-pill"
                 >
-                    Сортировать по названию
+                    Сортировать по названию {renderSortArrow2(selectedSort)}
                 </button>
             </div>
             <div>

@@ -8,6 +8,7 @@ import { Router } from "react-router-dom";
 import { createStore } from "./app/store/createStore";
 import { Provider } from "react-redux";
 import history from "./app/utils/history";
+import "./css/cast-slider.css";
 
 const store = createStore();
 

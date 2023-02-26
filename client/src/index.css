@@ -1,9 +1,9 @@
-@import "../src/icon-fonts/icon-style.css";
-@import "./reset.css";
+@import "./icon-fonts/icon-style.css";
+@import "./css/reset.css";
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap");
 @font-face {
     font-family: "icomoon";
-    src: url("../src/icon-fonts/fonts/icomoon.ttf") format("opentype");
+    src: url("./icon-fonts/fonts/icomoon.ttf") format("opentype");
 }
 
 body {
@@ -13,12 +13,18 @@ body {
         "Helvetica Neue", sans-serif;
     /* font-family: Verdana, sans-serif; */
     font-family: "Exo 2", sans-serif;
-    color: #414141;
+    /* color: #414141; */
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
+}
+.pos-rel {
+    position: relative;
+}
+.pos-abs {
+    position: absolute;
 }
 
 .imagePrev {
@@ -31,6 +37,12 @@ code {
     width: 200px;
     z-index: -3;
     overflow: hidden;
+}
+.z-3 {
+    z-index: 3;
+}
+.z--1 {
+    z-index: -1;
 }
 
 ._ibg {
@@ -45,6 +57,9 @@ code {
     left: 0;
     -o-object-fit: cover;
     object-fit: cover;
+}
+.border-none {
+    border: none;
 }
 
 .logotip {
@@ -109,6 +124,9 @@ code {
 .h-400px {
     height: 400px;
 }
+.h-350px {
+    height: 350px;
+}
 .cast-card-nowrap {
     flex-wrap: wrap;
     flex-direction: row;
@@ -139,10 +157,33 @@ code {
 .font-weight {
     font-weight: bold;
 }
-.h-100px{
+.h-100px {
     height: 200px;
     width: 100%;
 }
-.h-100px img{
+.h-100px img {
     object-fit: contain;
+}
+.white_txt {
+    color: #fff;
+}
+.white_txt * {
+    color: #fff;
+}
+.black_txt {
+    color: #000;
+}
+.white_bgr {
+    background-color: #fff;
+}
+.dark_bgr {
+    background-color: rgb(0, 0, 0);
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: rgb(249, 249, 249);
+    background-color: #ffc107;
+}
+.swiper-pagination{
+    bottom: 50%;
 }
