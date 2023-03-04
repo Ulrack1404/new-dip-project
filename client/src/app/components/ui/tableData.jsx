@@ -3,14 +3,21 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoryById } from "../../store/categories";
 import { Link } from "react-router-dom";
-import { removeFood } from "../../store/foods";
+import { setModalId } from "../../store/foods";
 
-const TableData = ({ food, columns }) => {
-    const dispatch = useDispatch();
+const TableData = ({
+    food,
+    columns,
+    isModal,
+    toggleModal
+}) => {
     const getCategory = useSelector(getCategoryById(food.category));
 
-    const handleRemoveFood = (id) => {
-        dispatch(removeFood(id));
+    const dispatch = useDispatch();
+
+    const handleModalId = (foodId) => {
+        dispatch(setModalId(foodId));
+        toggleModal(isModal);
     };
 
     return Object.keys(columns).map((column) => {
@@ -30,9 +37,7 @@ const TableData = ({ food, columns }) => {
                     getCategory.name
                 ) : column === "editItem" ? (
                     <Link to={`/edit/${food._id}`}>
-                        <div
-                            className="px-4 cursor-pointer"
-                        >
+                        <div className="px-4 cursor-pointer">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -52,7 +57,7 @@ const TableData = ({ food, columns }) => {
                 ) : column === "deleteItem" ? (
                     <div
                         className="px-4 cursor-pointer"
-                        onClick={() => handleRemoveFood(food._id)}
+                        onClick={() => handleModalId(food._id)}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

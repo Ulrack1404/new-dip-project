@@ -95,7 +95,7 @@ const EditFoodPage = ({ foodId }) => {
     return (
         <div className="container mt-2">
             <h1 className="h2 text-center mb-2">Измените данные о товаре</h1>
-            <div className="col-md-6 offset-md-3 shadow p-4">
+            <div className="col-md-6 offset-md-3 shadow p-4 mb-[100px]">
                 <div className="_ibg col-6 mb-4 h-100px radius-40px">
                     <img
                         src={require(`../../../img/categories/${food.imageUrl}.jpg`)}
@@ -138,7 +138,8 @@ const EditFoodPage = ({ foodId }) => {
                             <button
                                 type="submit"
                                 disabled={!isValid}
-                                className="btn btn-danger w-75 mx-auto rounded-pill"
+                                className="py-2 bg-red-600 text-gray-50 hover:bg-red-900
+                                  w-75 mx-auto rounded-pill"
                             >
                                 Обновить
                             </button>
@@ -147,7 +148,9 @@ const EditFoodPage = ({ foodId }) => {
                 ) : (
                     "Loading..."
                 )}
-                <BackHistoryButton />
+                <div className="text-center">
+                    <BackHistoryButton />
+                </div>
             </div>
         </div>
     );

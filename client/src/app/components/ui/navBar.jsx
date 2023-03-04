@@ -113,7 +113,7 @@ const NavBar = () => {
                                                     ? `${basPrice} ₽`
                                                     : 0}
                                             </div>
-                                            <span className="justify-center items-center scale-125 mr-1">
+                                            <span className=" justify-center items-center scale-125 mr-1">
                                                 <span className="icon-basket text-red-500"></span>
                                             </span>
                                             <span className="justify-center items-center text-gray-900 dark:text-white underline-item">
@@ -149,7 +149,7 @@ const NavBar = () => {
                                             className="flex hover-underline text-xl text-black mr-[20px] "
                                             to="/login"
                                         >
-                                            <span className="justify-center items-center scale-150 mr-1">
+                                            <span className="flex justify-center items-center scale-150 mr-1">
                                                 <span className="icon-sign-in position-relative z-1 me-2 text-red-500"></span>
                                             </span>
                                             <span className="justify-center items-center text-gray-900 dark:text-white underline-item">

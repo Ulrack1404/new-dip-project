@@ -6,7 +6,8 @@ const foodsSlice = createSlice({
     initialState: {
         entities: null,
         isLoading: true,
-        error: null
+        error: null,
+        modalId: null
     },
     reducers: {
         foodsRequested: (state) => {
@@ -39,6 +40,9 @@ const foodsSlice = createSlice({
         },
         foodCreatedFailed: (state, action) => {
             state.error = action.payload;
+        },
+        setModal: (state, action) => {
+            state.modalId = action.payload;
         }
     }
 });
@@ -77,6 +81,9 @@ export const removeFood = (id) => async (dispatch) => {
         dispatch(foodRemovedFailed(error.message));
     }
 };
+export const setModalId = (id) => (dispatch) => {
+    dispatch(setModal(id));
+};
 
 export const getFoods = () => (state) => state.foods.entities;
 
@@ -96,6 +103,10 @@ export const getFoodById = (id) => (state) => {
     return state.foods.entities.find((food) => food._id === id);
 };
 
+export const getModalId = () => (state) => {
+    return state.foods.modalId;
+};
+
 const { reducer: foodsReducer, actions } = foodsSlice;
 const {
     foodsRequested,
@@ -105,7 +116,8 @@ const {
     foodRemoved,
     foodRemovedFailed,
     foodCreated,
-    foodCreatedFailed
+    foodCreatedFailed,
+    setModal
 } = actions;
 
 export default foodsReducer;
