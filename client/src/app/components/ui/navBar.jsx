@@ -43,7 +43,9 @@ const NavBar = () => {
             <div
                 className={
                     "mx-auto w-full fixed top-0 z-50   overflow-hidden bg-gray-50 dark:bg-gray-700 duration-500 opacity-100" +
-                    (scroll ? " text-xs shadow-lg  dark:shadow-inherit" : " py-2 ")
+                    (scroll
+                        ? " text-xs shadow-lg dark:shadow-inherit py-[5px]"
+                        : " py-2 ")
                 }
             >
                 <div
@@ -58,13 +60,13 @@ const NavBar = () => {
                             </Link>
                         )}
                         <div className="flex">
-                            <ul className="flex items-center">
+                            <ul className="flex items-center ">
                                 <li>
                                     <Link
-                                        className="hover-underline text-xl nav-link text-black"
+                                        className="flex hover-underline text-xl justify-center items-center mr-[20px] text-black"
                                         to={"/foods"}
                                     >
-                                        <span className="flex flex-nowrap flex-row text-xs items-center">
+                                        <span className="flex flex-nowrap flex-row text-xs justify-center items-center">
                                             {/* <i className="bi bi-list-task"></i> */}
                                             <svg
                                                 width="25px"
@@ -79,7 +81,7 @@ const NavBar = () => {
                                                     d="M5,6 L1,4.5 L1,18.443038 L12,23 L23,18.443038 L23,4 L19,6 M5,16 L5,2 L12,5 L19,2 L19,16 L12,19 L5,16 Z M11.95,5 L11.95,19"
                                                 />
                                             </svg>
-                                            <span className="underline-item text-gray-900 dark:text-white text-xl">
+                                            <span className="justify-center items-center underline-item text-gray-900 dark:text-white text-xl">
                                                 Каталог товаров
                                             </span>
                                         </span>
@@ -87,14 +89,14 @@ const NavBar = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        className="hover-underline nav-link text-xl  text-black"
+                                        className="flex hover-underline text-xl justify-center items-center text-black mr-[20px] "
                                         to={"/"}
                                     >
-                                        <span className=" scale-150 mr-3">
+                                        <span className="justify-center items-center scale-150 mr-3">
                                             <i className="bi bi-people text-red-500"></i>
                                         </span>
 
-                                        <span className="text-gray-900 dark:text-white underline-item">
+                                        <span className="justify-center items-center text-gray-900 dark:text-white underline-item">
                                             {" "}
                                             О нас
                                         </span>
@@ -102,7 +104,7 @@ const NavBar = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        className="hover-underline nav-link text-xl  text-black"
+                                        className="flex hover-underline text-xl text-black mr-[30px] "
                                         to="/basket"
                                     >
                                         <div className="relative">
@@ -111,10 +113,10 @@ const NavBar = () => {
                                                     ? `${basPrice} ₽`
                                                     : 0}
                                             </div>
-                                            <span className=" scale-125 mr-1">
+                                            <span className="justify-center items-center scale-125 mr-1">
                                                 <span className="icon-basket text-red-500"></span>
                                             </span>
-                                            <span className="text-gray-900 dark:text-white underline-item">
+                                            <span className="justify-center items-center text-gray-900 dark:text-white underline-item">
                                                 {" "}
                                                 корзина
                                             </span>
@@ -124,14 +126,14 @@ const NavBar = () => {
                                 {isLoggedIn && (
                                     <li className="nav-item">
                                         <Link
-                                            className="hover-underline nav-link text-xl  text-black"
+                                            className="flex hover-underline text-xl text-black mr-[20px] "
                                             aria-current="page"
                                             to={"/edit"}
                                         >
-                                            <span className=" scale-125 mr-1">
+                                            <span className="justify-center items-center scale-125 mr-1">
                                                 <i className="bi bi-pen text-red-500"></i>
                                             </span>
-                                            <span className="text-gray-900 dark:text-white underline-item">
+                                            <span className="justify-center items-center text-gray-900 dark:text-white underline-item">
                                                 Редактировать каталог
                                             </span>
                                         </Link>
@@ -139,16 +141,18 @@ const NavBar = () => {
                                 )}
                                 <li>
                                     {isLoggedIn ? (
-                                        <NavProfile />
+                                        <div className="mr-[20px]">
+                                            <NavProfile />
+                                        </div>
                                     ) : (
                                         <Link
-                                            className="hover-underline nav-link text-xl  text-black"
+                                            className="flex hover-underline text-xl text-black mr-[20px] "
                                             to="/login"
                                         >
-                                            <span className=" scale-150 mr-1">
+                                            <span className="justify-center items-center scale-150 mr-1">
                                                 <span className="icon-sign-in position-relative z-1 me-2 text-red-500"></span>
                                             </span>
-                                            <span className="text-gray-900 dark:text-white underline-item">
+                                            <span className="justify-center items-center text-gray-900 dark:text-white underline-item">
                                                 войти
                                             </span>
                                         </Link>
