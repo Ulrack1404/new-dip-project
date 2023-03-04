@@ -6,7 +6,7 @@ const TextAreaField = ({ label, name, value, onChange, error }) => {
         onChange({ name: target.name, value: target.value });
     };
     const getInputClasses = () => {
-        return "form-control" + (error ? " is-invalid" : "");
+        return "form-control bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" + (error ? " is-invalid" : "");
     };
 
     return (

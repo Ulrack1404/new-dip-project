@@ -36,7 +36,7 @@ const SwiperComponent = () => {
                 grabCursor={true}
                 pagination={{ clickable: true }}
                 scrollbar={{ draggable: true }}
-                className="prod-slider"
+                className="prod-slider bg-gray-50 dark:bg-gray-700"
             >
                 {categories.map((category) => {
                     return (

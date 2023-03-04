@@ -46,7 +46,7 @@ const TableBasketData = ({ food, columns, handleDelete }) => {
                     <div className="d-flex align-items-center">
                         <div>
                             <button
-                                className="btn fs-5 me-2"
+                                className="btn fs-5 me-2 text-gray-900 dark:text-white"
                                 onClick={() => handleIncrement(food._id)}
                             >
                                 +
@@ -57,7 +57,7 @@ const TableBasketData = ({ food, columns, handleDelete }) => {
                         </div>
                         <div>
                             <button
-                                className="btn fs-5"
+                                className="btn fs-5 text-gray-900 dark:text-white"
                                 onClick={() => handleDecrement(food._id)}
                             >
                                 -

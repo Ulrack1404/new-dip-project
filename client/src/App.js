@@ -13,19 +13,23 @@ import Footer from "./app/components/ui/footer";
 
 function App() {
     return (
-        <div>
+        <div className="bg-gray-50 dark:bg-gray-700">
             <AppLoader>
                 <DarkModeProvider>
                     <NavBar />
+
+                    <Switch>
+                        <ProtectedRoute path="/basket" component={Basket} />
+                        <ProtectedRoute
+                            path="/edit/:foodId?"
+                            component={Edit}
+                        />
+                        <Route path="/foods/:foodId?" component={Foods} />
+                        <Route path="/login/:type?" component={Login} />
+                        <Route path="/" exact component={Main} />
+                        <Redirect to="/" />
+                    </Switch>
                 </DarkModeProvider>
-                <Switch>
-                    <ProtectedRoute path="/basket" component={Basket} />
-                    <ProtectedRoute path="/edit/:foodId?" component={Edit} />
-                    <Route path="/foods/:foodId?" component={Foods} />
-                    <Route path="/login/:type?" component={Login} />
-                    <Route path="/" exact component={Main} />
-                    <Redirect to="/" />
-                </Switch>
                 <Footer />
             </AppLoader>
         </div>

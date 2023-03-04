@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "./icon-fonts/icon-style.css";
 @import "./css/reset.css";
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap");
@@ -89,6 +93,7 @@ code {
     font-size: 40px;
     font-weight: bold;
 }
+
 .color-w {
     color: #fff;
 }
@@ -118,8 +123,38 @@ code {
     border-radius: 20% 0 10% 0;
     overflow: hidden;
 }
-.img-prev-radius-div {
-    border-radius: 10%;
+.bg-image-login {
+    background-image: linear-gradient(
+            rgba(71, 84, 95, 0.6),
+            rgba(71, 84, 95, 0.6)
+        ),
+        url("./img/categories//loginForm.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.bg-image-foodList {
+    background-image: linear-gradient(
+            rgba(201, 201, 201, 0.9),
+            rgba(181, 181, 181, 0.9)
+        ),
+        url("./img/categories/foodList.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.bg-image-foodList_dark {
+    background-image: linear-gradient(
+            rgba(105, 105, 105, 0.9),
+            rgba(78, 78, 78, 0.9)
+        ),
+        url("./img/categories/foodList.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 .h-400px {
     height: 400px;
@@ -173,17 +208,88 @@ code {
 .black_txt {
     color: #000;
 }
-.white_bgr {
-    background-color: #fff;
-}
-.dark_bgr {
-    background-color: rgb(0, 0, 0);
-}
+
 .page-item.active .page-link {
     z-index: 3;
     color: rgb(249, 249, 249);
     background-color: #ffc107;
 }
-.swiper-pagination{
+.swiper-pagination {
     bottom: 50%;
+}
+
+.hover-underline .underline-item {
+    display: inline-block;
+    line-height: 2;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.hover-underline .underline-item:after {
+    display: block;
+    content: "";
+    background-color: rgb(171, 26, 26);
+    height: 3px;
+    width: 0%;
+    left: 50%;
+    position: absolute;
+    -webkit-transition: width 0.3s ease-in-out;
+    -moz--transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.hover-underline .underline-item:hover:after,
+.hover-underline .underline-item:focus:after {
+    width: 100%;
+}
+
+.parent-loader {
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    background-color: #fafafa;
+    color: rgb(144, 136, 50);
+}
+.loader {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    border: 16px solid #fafafa;
+    border-radius: 100vw;
+    border-top: 16px solid red;
+    animation: spin 1s linear infinite;
+}
+.loader::before {
+    position: absolute;
+    content: "";
+    top: 2.25px;
+    left: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 100vw;
+    background-color: red;
+    animation: spin 1s linear infinite;
+}
+.loader::after {
+    position: absolute;
+    content: "";
+    top: 2.25px;
+    right: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 100vw;
+    background-color: red;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
 }

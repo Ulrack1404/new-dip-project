@@ -12,12 +12,22 @@ import {
 import { getFoods } from "../../store/foods";
 
 import Loader from "../common/loader/loader";
+import { useDarkMode } from "../../hooks/useDarkMode";
 
 const FoodsList = () => {
     const foods = useSelector(getFoods());
     const categories = useSelector(getCategories());
 
     const categoriesLoading = useSelector(getCategoriesLoadingStatus());
+
+    const { theme } = useDarkMode();
+
+    console.log("theme:", theme);
+
+    // useEffect(() => {
+    //     toggleMode(theme);
+    //     console.log("theme:", theme);
+    // }, []);
 
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedProf, setSelectedProf] = useState();
@@ -79,61 +89,70 @@ const FoodsList = () => {
         };
 
         return (
-            <div className="container mt-1">
-                <div className="mb-4">
-                    <form className="d-flex" role="search">
-                        <input
-                            className="form-control me-2"
-                            type="search"
-                            placeholder="Search..."
-                            aria-label="Search"
-                            onChange={handleSearchQuery}
-                            value={searchQuery}
-                        />
-                        <button
-                            className="btn btn-outline-success"
-                            type="submit"
-                        >
-                            Search
-                        </button>
-                    </form>
-                </div>
-
-                <div className="d-flex">
-                    {categories && (
-                        <div className="d-flex flex-column border col-5 me-5">
-                            <GroupList
-                                selectedItem={selectedProf}
-                                items={categories}
-                                onItemSelect={handleCategoriesSelect}
+            <div
+                className={
+                    "bg-gray-50 dark:bg-gray-700 pb-[50px]" +
+                    (theme === "light"
+                        ? " bg-image-foodList"
+                        : " bg-image-foodList_dark")
+                }
+            >
+                <div className="container mt-1">
+                    <div className="pt-[30px] mb-4">
+                        <form className="d-flex" role="search">
+                            <input
+                                className="form-control me-2 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
+                                type="search"
+                                placeholder="Search..."
+                                aria-label="Search"
+                                onChange={handleSearchQuery}
+                                value={searchQuery}
                             />
-                            <div className="d-flex justify-content-center">
-                                <button
-                                    className="btn btn-primary rounded-pill px-4 me-3 mt-2"
-                                    onClick={clearFilter}
-                                >
-                                    {" "}
-                                    Очистить
-                                </button>
-                            </div>
-                        </div>
-                    )}
+                            <button
+                                className="btn btn-outline-success"
+                                type="submit"
+                            >
+                                Search
+                            </button>
+                        </form>
+                    </div>
 
-                    {count > 0 && (
-                        <FoodsContent
-                            foods={foodsCrop}
-                            onSort={handleSort}
-                            selectedSort={sortBy}
+                    <div className="d-flex">
+                        {categories && (
+                            <div className="d-flex flex-column border col-5 me-5 rounded-[10px] p-3">
+                                <GroupList
+                                    selectedItem={selectedProf}
+                                    items={categories}
+                                    onItemSelect={handleCategoriesSelect}
+                                />
+                                <div className="d-flex justify-content-center">
+                                    <button
+                                        className="btn btn-primary rounded-pill px-4 me-3 mt-2"
+                                        onClick={clearFilter}
+                                    >
+                                        {" "}
+                                        Очистить
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+
+                        {count > 0 && (
+                            <FoodsContent
+                                foods={foodsCrop}
+                                onSort={handleSort}
+                                selectedSort={sortBy}
+                            />
+                        )}
+                    </div>
+                    <div className="flex my-3 justify-center">
+                        <Pagination
+                            itemsCount={count}
+                            pageSize={pageSize}
+                            currentPage={currentPage}
+                            onPageChange={handlePageChange}
                         />
-                    )}
-                </div>
-                <div className="mt-5">
-                    <Pagination
-                        itemsCount={count}
-                        pageSize={pageSize}
-                        currentPage={currentPage}
-                        onPageChange={handlePageChange}
-                    />
+                    </div>
                 </div>
             </div>
         );

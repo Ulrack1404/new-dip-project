@@ -9,7 +9,10 @@ const FoodPrev = ({ _id, name, category, price, imageUrl }) => {
     const getCategory = useSelector(getCategoryById(category));
     return (
         <Link to={`/foods/${_id}`}>
-            <div className="d-flex m-2 shadow-prev transition-prev">
+            <div
+                className="d-flex overflow-hidden m-2 relative shadow-prev transition-prev bg-gray-50 dark:bg-gray-700 rounded-[10px]
+            border-[1px] border-[#d3d3d3]"
+            >
                 <div className="_ibg  img-prev-radius m-2 col-3">
                     <img
                         src={require(`../../../img/categories/${imageUrl}.jpg`)}
@@ -17,15 +20,22 @@ const FoodPrev = ({ _id, name, category, price, imageUrl }) => {
                     />
                 </div>
                 <div className=" m-1 flex-grow-1">
-                    <h2 className="fs-4 fw-bold">{name}</h2>
-                    <p className="fs-3 text-danger">{price} р.</p>
-                    <p className="fs-6 ">{getCategory.name}</p>
-                    <p>
+                    <h2 className="fs-4 fw-bold text-gray-900 dark:text-white my-1">
+                        {name}
+                    </h2>
+                    <p className="fs-3  text-red-500 dark:text-red-300 mb-1">
+                        {price} р.
+                    </p>
+                    <p className="fs-6 text-gray-900 dark:text-white mb-1">
+                        {getCategory.name}
+                    </p>
+                    {/* <p>
                         <button className="btn btn-warning color-w  rounded-pill px-4 position-relative">
                             Перейти для добавления в корзину
                         </button>
-                    </p>
+                    </p> */}
                 </div>
+
             </div>
         </Link>
     );

@@ -50,10 +50,10 @@ const Basket = () => {
 
     if (foodsInBasket) {
         return (
-            <div>
+            <div className="mt-5 mb-[300px]">
                 {foodsInBasket.length !== 0 ? (
-                    <div className="container mt-1">
-                        <div className="d-flex w-75">
+                    <div className="container mt-1 ">
+                        <div className="d-flex w-75 text-gray-900 dark:text-white">
                             <div className="mb-5 w-50">
                                 <div>
                                     <span className="fs-3 fw-bold me-5">
@@ -78,7 +78,7 @@ const Basket = () => {
                                 </button>
                             </div>
                         </div>
-                        <table className="table align-middle">
+                        <table className="table align-middle text-gray-900 dark:text-white">
                             <thead>
                                 <tr>
                                     {Object.keys(columns).map((column) => (
@@ -102,10 +102,10 @@ const Basket = () => {
                         </table>
                     </div>
                 ) : (
-                    <div>
+                    <div className="text-gray-900 dark:text-white">
                         <h1 className="text-center fs-1 my-5">Корзина пуста</h1>
                         <div className="text-center fs-1">
-                        <i className="bi bi-cart-x"></i>
+                            <i className="bi bi-cart-x"></i>
                         </div>
                         <div className="d-flex justify-content-center">
                             <button

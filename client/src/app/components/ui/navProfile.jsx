@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {
+    Menu,
+    MenuHandler,
+    MenuList,
+    MenuItem
+} from "@material-tailwind/react";
 import { getCurrentUserData, logout } from "../../store/auth";
 
 function NavProfile() {
@@ -16,27 +22,24 @@ function NavProfile() {
     };
     if (!currentUser) return "loading";
     return (
-        <div className="dropdown" onClick={toggleMenu}>
-            <div className="btn dropdown-toggle d-flex align-items-center">
-                <div className="me-2">{currentUser.name}</div>
-                <img
-                    src={currentUser.image}
-                    alt=""
-                    height="40"
-                    className="img-responsive rounded-circle"
-                />
-            </div>
-            <div className={"w-100 dropdown-menu" + (isOpen ? " show" : "")}>
-                <div className="dropdown-item">
-                    <button
-                        onClick={logOut}
-                        className="btn d-block w-100 btn-warning"
-                    >
-                        Выйти
-                    </button>
+        <Menu>
+            <MenuHandler>
+                <div className="flex items-center text-xl hover-underline">
+                    <div className="underline-item light:text-black dark:text-white">
+                        {currentUser.name}
+                        <i className="bi bi-chevron-down"></i>
+                    </div>
+                    <img
+                        src={currentUser.image}
+                        alt=""
+                        className="img-responsive rounded-circle h-12"
+                    />
                 </div>
-            </div>
-        </div>
+            </MenuHandler>
+            <MenuList className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white">
+                <MenuItem onClick={logOut}>Выйти</MenuItem>
+            </MenuList>
+        </Menu>
     );
 }
 

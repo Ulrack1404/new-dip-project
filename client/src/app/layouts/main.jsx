@@ -5,8 +5,9 @@ import useMockData from "../utils/mockData";
 const Main = () => {
     return (
         <>
+        <div className="">
             <div className=" gradient">
-                <div className="d-flex container py-5 ">
+                <div className="d-flex container">
                     <div className="col-6">
                         <h1 className="h1 color-w mb-5">
                             Доставка еды в нашем городе
@@ -25,6 +26,7 @@ const Main = () => {
                             банкеты, свадьбы, юбилеи.
                         </p>
                     </div>
+                    </div>
                 </div>
             </div>
             {/* <div className="pos-rel">
@@ -40,7 +42,7 @@ const Main = () => {
                     </div>
                 </div>
             </div> */}
-            <div className="py-2">
+            <div className="py-2 bg-gray-50 dark:bg-gray-700">
                 <SwiperComponent />
             </div>
         </>

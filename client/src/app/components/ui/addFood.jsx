@@ -85,10 +85,16 @@ const AddFood = () => {
 
     return (
         <div>
-            <h1 className="h4 text-center my-4">Добавить новый товар</h1>
+            <h1 className="h4 text-center my-4 text-gray-900 dark:text-white">
+                Добавить новый <br />
+                товар
+            </h1>
             {!isLoading && Object.keys(categories).length > 0 ? (
                 <div className="mx-2">
-                    <form onSubmit={handleSubmit}>
+                    <form
+                        onSubmit={handleSubmit}
+                        className="text-gray-900 dark:text-white"
+                    >
                         <TextField
                             label="Наименование"
                             name="name"

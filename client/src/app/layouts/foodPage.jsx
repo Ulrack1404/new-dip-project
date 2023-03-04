@@ -51,7 +51,7 @@ const FoodPage = ({ foodId }) => {
     };
     if (food) {
         return (
-            <div className="d-flex container mt-5">
+            <div className="d-flex container mt-5 mb-[200px]">
                 <div className="_ibg border col-6 me-4 h-400px radius-40px">
                     <img
                         src={require(`../../img/categories/${food.imageUrl}.jpg`)}
@@ -59,34 +59,34 @@ const FoodPage = ({ foodId }) => {
                     />
                 </div>
                 <div>
-                    <h1 className="h1-page fs-1 mb-5"> {food.name}</h1>
+                    <h1 className="h1-page fs-1 mb-5 text-gray-900 dark:text-white"> {food.name}</h1>
                     {food.description && (
-                        <div className="fs-4 mb-3">{`Описание: ${food.description}`}</div>
+                        <div className="fs-4 mb-3 text-gray-900 dark:text-white">{`Описание: ${food.description}`}</div>
                     )}
                     <div className="mb-5">
-                        <span className="fs-4 me-3">Цена:</span>
-                        <span className="text-danger fw-bold fs-1 me-1">
+                        <span className="fs-4 me-3 text-gray-900 dark:text-white">Цена:</span>
+                        <span className="text-red-500 dark:text-red-300 fw-bold fs-1 me-1">
                             {food.price}.00
                         </span>
-                        <span className="text-danger fw-bold fs-2">₽</span>
+                        <span className="text-red-500 dark:text-red-300 fw-bold fs-2">₽</span>
                     </div>
                     {/* ********** счетчик ********* */}
                     <div className="d-flex">
-                        <div className="d-flex mb-5 justify-content-between w-75">
+                        <div className="d-flex mb-5 justify-content-between w-75 text-gray-900 dark:text-white">
                             <div>
                                 <button
-                                    className="btn fs-2 me-4"
+                                    className="btn fs-2 me-4 text-gray-900 dark:text-white"
                                     onClick={handleIncrement}
                                 >
                                     +
                                 </button>
                             </div>
-                            <div className="fs-3 border px-5 rounded-pill me-4">
+                            <div className="fs-3 border px-5 rounded-pill me-4 ">
                                 {counter}
                             </div>
                             <div>
                                 <button
-                                    className="btn  fs-2"
+                                    className="btn  fs-2 text-gray-900 dark:text-white"
                                     onClick={handleDecrement}
                                 >
                                     -

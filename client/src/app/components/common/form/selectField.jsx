@@ -14,7 +14,10 @@ const SelectField = ({
         onChange({ name: target.name, value: target.value });
     };
     const getInputClasses = () => {
-        return "form-select" + (error ? " is-invalid" : "");
+        return (
+            "form-select bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" +
+            (error ? " is-invalid" : "")
+        );
     };
 
     const optionsArray =

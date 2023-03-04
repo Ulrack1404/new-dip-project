@@ -8,26 +8,22 @@ export const useDarkMode = () => {
 };
 
 export const DarkModeProvider = ({ children }) => {
-    const [isMode, setMode] = useState(false);
+    const [theme, setTheme] = useState("light");
 
     const toggleMode = () => {
-        setMode(!isMode);
+        setTheme(theme === "light" ? "dark" : "light");
     };
-
+    const html = document.documentElement;
     useEffect(() => {
-        const body = window.document.body;
-
-        const prevThemeBgr = isMode ? "white_bgr" : "dark_bgr";
-        const prevThemeText = isMode ? "black_txt" : "white_txt";
-        body.classList.remove(prevThemeBgr, prevThemeText);
-
-        const nextThemeBgr = isMode ? "dark_bgr" : "white_bgr";
-        const nextThemeText = isMode ? "white_txt" : "black_txt";
-        body.classList.add(nextThemeBgr, nextThemeText);
-    }, [isMode]);
+        if (theme === "dark") {
+            html.classList.add("dark");
+        } else {
+            html.classList.remove("dark");
+        }
+    }, [theme]);
 
     return (
-        <DarkModeContext.Provider value={{ isMode, toggleMode }}>
+        <DarkModeContext.Provider value={{ theme, toggleMode }}>
             {children}
         </DarkModeContext.Provider>
     );
