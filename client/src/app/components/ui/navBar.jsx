@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Button, Switch } from "@material-tailwind/react";
-import { getIsLoggedIn } from "../../store/auth";
+import { getIsLoggedIn, getCurrentUserData } from "../../store/auth";
 import NavProfile from "./navProfile";
 import {
     getSummaryBasketCounter,
@@ -12,6 +12,7 @@ import { useDarkMode } from "../../hooks/useDarkMode";
 
 const NavBar = () => {
     const isLoggedIn = useSelector(getIsLoggedIn());
+    const currentUser = useSelector(getCurrentUserData());
     const basCount = useSelector(getSummaryBasketCounter());
     const basPrice = useSelector(getSummaryBasketPrice());
 
@@ -123,22 +124,23 @@ const NavBar = () => {
                                         </div>
                                     </Link>
                                 </li>
-                                {isLoggedIn && (
-                                    <li className="nav-item">
-                                        <Link
-                                            className="flex hover-underline text-xl text-black mr-[20px] "
-                                            aria-current="page"
-                                            to={"/edit"}
-                                        >
-                                            <span className="justify-center items-center scale-125 mr-1">
-                                                <i className="bi bi-pen text-red-500"></i>
-                                            </span>
-                                            <span className="justify-center items-center text-gray-900 dark:text-white underline-item">
-                                                Редактировать каталог
-                                            </span>
-                                        </Link>
-                                    </li>
-                                )}
+                                {currentUser &&
+                                    currentUser.role === "admin" && (
+                                        <li className="nav-item">
+                                            <Link
+                                                className="flex hover-underline text-xl text-black mr-[20px] "
+                                                aria-current="page"
+                                                to={"/edit"}
+                                            >
+                                                <span className="justify-center items-center scale-125 mr-1">
+                                                    <i className="bi bi-pen text-red-500"></i>
+                                                </span>
+                                                <span className="justify-center items-center text-gray-900 dark:text-white underline-item">
+                                                    Редактировать каталог
+                                                </span>
+                                            </Link>
+                                        </li>
+                                    )}
                                 <li>
                                     {isLoggedIn ? (
                                         <div className="mr-[20px]">
@@ -159,7 +161,7 @@ const NavBar = () => {
                                     )}
                                 </li>
                                 <li>
-                                    <i className="bi bi-brightness-high mr-2 text-gray-900 dark:text-white"></i>
+                                    <i className="bi bi-moon-stars light:text-black dark:text-white pr-2"></i>
                                     <span className="mr-3">
                                         <Switch
                                             id="red"
@@ -168,7 +170,7 @@ const NavBar = () => {
                                             defaultChecked
                                         />
                                     </span>
-                                    <i className="bi bi-moon-stars light:text-black dark:text-white"></i>
+                                    <i className="bi bi-brightness-high mr-2 text-gray-900 dark:text-white"></i>
                                     {/* <Button
                                 className="btn border rounded-pill px-4 border-danger"
                                 // onClick={handleTheme}

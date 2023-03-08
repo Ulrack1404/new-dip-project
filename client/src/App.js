@@ -10,6 +10,7 @@ import Basket from "./app/components/ui/basket";
 import Edit from "./app/components/ui/edit";
 import { DarkModeProvider } from "./app/hooks/useDarkMode";
 import Footer from "./app/components/ui/footer";
+import ProtectedRouteAdmin from "./app/components/common/protectedRouteAdmin";
 
 function App() {
     return (
@@ -20,7 +21,7 @@ function App() {
 
                     <Switch>
                         <ProtectedRoute path="/basket" component={Basket} />
-                        <ProtectedRoute
+                        <ProtectedRouteAdmin
                             path="/edit/:foodId?"
                             component={Edit}
                         />

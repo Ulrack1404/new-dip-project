@@ -30,7 +30,7 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
                 />
                 {type === "password" && (
                     <button
-                        className="btn btn-outline-secondary"
+                        className="border border-[#ffffff] px-3 rounded-tr-md rounded-br-md"
                         type="button"
                         onClick={toggleShowPassword}
                     >

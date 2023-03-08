@@ -4,6 +4,7 @@ import TextField from "../common/form/textField";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signUp } from "../../store/auth";
+import SelectField from "../common/form/selectField";
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
@@ -12,7 +13,8 @@ const RegisterForm = () => {
     const [data, setData] = useState({
         username: "",
         email: "",
-        password: ""
+        password: "",
+        role: ""
     });
 
     const [errors, setErrors] = useState({});
@@ -51,6 +53,11 @@ const RegisterForm = () => {
                 message: "Пароль должен состоять минимум из 8 символов",
                 value: 8
             }
+        },
+        role: {
+            isRequired: {
+                message: "Укажите свой статус"
+            }
         }
     };
     useEffect(() => {
@@ -70,6 +77,11 @@ const RegisterForm = () => {
         dispatch(signUp({ ...data, name: data.username }));
         history.push("/");
     };
+
+    const roleList = [
+        { label: "пользователь", value: "client" },
+        { label: "администратор", value: "admin" }
+    ];
 
     return (
         <form onSubmit={handleSubmit}>
@@ -95,8 +107,18 @@ const RegisterForm = () => {
                 onChange={handleChange}
                 error={errors.password}
             />
+            <SelectField
+                label="Укажите свой статус"
+                value={data.role}
+                onChange={handleChange}
+                defaultOption="Выберите..."
+                options={roleList}
+                error={errors.profession}
+                name="role"
+            />
             <button
-                className="btn btn-primary w-100 mx-auto"
+                className="py-2 bg-red-300 text-gray-50 hover:bg-red-900
+                w-100 mx-auto rounded-md"
                 type="submit"
                 disabled={!isValid}
             >

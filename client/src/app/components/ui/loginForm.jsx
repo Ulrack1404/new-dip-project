@@ -85,7 +85,8 @@ const LoginForm = () => {
             />
             {loginError && <p className="text-danger">{loginError}</p>}
             <button
-                className="btn btn-primary w-100 mx-auto"
+                className="py-2 bg-red-300 text-gray-50 hover:bg-red-900
+                w-100 mx-auto rounded-md"
                 type="submit"
                 disabled={!isValid}
             >
