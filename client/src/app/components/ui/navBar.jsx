@@ -8,13 +8,20 @@ import {
     getSummaryBasketCounter,
     getSummaryBasketPrice
 } from "../../store/basket";
-import { useDarkMode } from "../../hooks/useDarkMode";
+import { useDarkMode, getFromLocalStorage } from "../../hooks/useDarkMode";
 
 const NavBar = () => {
     const isLoggedIn = useSelector(getIsLoggedIn());
     const currentUser = useSelector(getCurrentUserData());
     const basCount = useSelector(getSummaryBasketCounter());
     const basPrice = useSelector(getSummaryBasketPrice());
+
+    const isChecked = () => {
+        const getTheme = getFromLocalStorage();
+        if (!getTheme) return true;
+        if (getTheme && getTheme === "light") return true;
+        if (getTheme && getTheme === "dark") return false;
+    };
 
     // ------------scroll
     const [scroll, setScroll] = useState(false);
@@ -25,17 +32,8 @@ const NavBar = () => {
     }, []);
     // -------------------
 
-    const [isOpen, setOpen] = useState(false);
-    const [isOpenBurg, setOpenBurg] = useState(false);
-
     const { theme, toggleMode } = useDarkMode();
 
-    const toggleMenuItem = () => {
-        setOpen((prevState) => !prevState);
-    };
-    const toggleMenuBurg = () => {
-        setOpenBurg((prevState) => !prevState);
-    };
     const handleTheme = () => {
         toggleMode(theme);
     };
@@ -68,7 +66,6 @@ const NavBar = () => {
                                         to={"/foods"}
                                     >
                                         <span className="flex flex-nowrap flex-row text-xs justify-center items-center">
-                                            {/* <i className="bi bi-list-task"></i> */}
                                             <svg
                                                 width="25px"
                                                 height="25px"
@@ -167,20 +164,10 @@ const NavBar = () => {
                                             id="red"
                                             color="red"
                                             onClick={handleTheme}
-                                            defaultChecked
+                                            defaultChecked={isChecked()}
                                         />
                                     </span>
                                     <i className="bi bi-brightness-high mr-2 text-gray-900 dark:text-white"></i>
-                                    {/* <Button
-                                className="btn border rounded-pill px-4 border-danger"
-                                // onClick={handleTheme}
-                            >
-                                {isMode ? (
-                                    <i className="bi bi-brightness-high "></i>
-                                ) : (
-                                    <i className="bi bi-moon-stars text-black"></i>
-                                )}
-                            </Button> */}
                                 </li>
                             </ul>
                         </div>
